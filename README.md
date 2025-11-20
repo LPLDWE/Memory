@@ -1,7 +1,5 @@
 Projekt
 
-Iche esse gerne Schokolade
+Ich esse gerne Schokolade.
 
-a
-
-s
+Leopold ist gerne Pizza, vieleicht.
