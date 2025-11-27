@@ -1,4 +1,4 @@
-class MemoryNav extends HTMLElement {
+export class MemoryNav extends HTMLElement {
   constructor() {
     super();
 
@@ -68,5 +68,3 @@ class MemoryNav extends HTMLElement {
       `;
   }
 }
-
-customElements.define('memory-nav', MemoryNav);
