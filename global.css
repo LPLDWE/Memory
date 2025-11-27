@@ -8,7 +8,7 @@
   --text-light: #64748b;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   color: var(--text);
@@ -33,9 +33,96 @@ body {
   text-align: center;
 }
 
+/* Header */
 header {
   margin-bottom: 4rem;
   animation: fadeInDown 0.8s ease-out;
+}
+
+.main-header {
+  margin-bottom: 4rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.app-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.game-selector {
+  display: flex;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.selector-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selector-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.selector-btn.active {
+  background: white;
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.selector-btn.active i {
+  color: var(--primary);
+}
+
+.header-subtitle p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 640px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .app-title {
+    font-size: 2.6rem;
+  }
+
+  .game-selector {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 h1 {
@@ -101,7 +188,7 @@ p.subtitle {
 }
 
 .card-header::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="20" cy="20" r="8"/><circle cx="80" cy="30" r="12"/><circle cx="50" cy="70" r="10"/></svg>')

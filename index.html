@@ -12,12 +12,26 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>Willkommen zum Lernspiel der GWS Bühl</h1>
-        <p class="subtitle">
-          Wähle dein Lieblings-Lernspiel und los geht’s! Lernen war noch nie so
-          spannend.
-        </p>
+      <header class="main-header">
+        <div class="header-content">
+          <h1 class="app-title">LernSpaß</h1>
+
+          <div class="game-selector">
+            <button class="selector-btn active" data-game="1">
+              <i class="fas fa-brain"></i> Game 1
+            </button>
+            <button class="selector-btn" data-game="2">
+              <i class="fas fa-puzzle-piece"></i> Game 2
+            </button>
+          </div>
+        </div>
+
+        <div class="header-subtitle">
+          <p>
+            Wähle dein Lieblings-Lernspiel und los geht’s! Lernen war noch nie
+            so spannend.
+          </p>
+        </div>
       </header>
 
       <div class="games-grid">
