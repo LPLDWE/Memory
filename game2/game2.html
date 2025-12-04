@@ -1,9 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spiel 2 – Bilder raten</title>
+    <link rel="stylesheet" href="./styles/game2.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- Header: Spielname links, Spielauswahl rechts -->
+    <header class="app-header">
+      <div class="header-left">
+        <div id="game-title" class="game-title">Spiel 2 – Bilder raten</div>
+      </div>
+      <nav class="header-right">
+        <a href="./game1.html" class="nav-btn" id="nav-game1">Spiel 1</a>
+        <a href="./game2.html" class="nav-btn is-active" id="nav-game2"
+          >Spiel 2</a
+        >
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="layout">
+        <!-- Sidebar: Gruppenverwaltung + sortierbare Tabelle -->
+        <aside class="sidebar">
+          <section class="panel" aria-labelledby="groups-title">
+            <h2 id="groups-title" class="section-title">Gruppen</h2>
+
+            <form class="group-form" id="group-form" autocomplete="off">
+              <label for="group-input" class="sr-only"
+                >Gruppen-/Spielername</label
+              >
+              <input
+                id="group-input"
+                name="group-input"
+                type="text"
+                placeholder="Gruppen-/ Spielername"
+              />
+              <button type="button" id="add-group-btn" class="btn btn-outline">
+                hinzufügen
+              </button>
+            </form>
+
+            <!-- Tabelle: "Gruppe | Punkte" (vom Backend befüllen/sortieren) -->
+            <div class="group-table-wrap">
+              <table
+                class="group-table"
+                id="group-table"
+                aria-describedby="group-table-caption"
+              >
+                <caption id="group-table-caption" class="sr-only">
+                  Liste der Gruppen und Punkte
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Gruppe</th>
+                    <th scope="col" class="col-score">Punkte</th>
+                  </tr>
+                </thead>
+                <tbody id="group-table-body">
+                  <!-- Beispiel (vom Backend ersetzt)
+                <tr class="is-current" data-group-id="g1">
+                  <td class="gt-name">Gruppe 1</td>
+                  <td class="gt-score">5</td>
+                </tr>
+                <tr data-group-id="g2">
+                  <td class="gt-name">Gruppe 2</td>
+                  <td class="gt-score">3</td>
+                </tr>
+                --></tbody>
+              </table>
+              <div class="empty-state" id="group-table-empty">
+                Noch keine Gruppen. Bitte oben hinzufügen.
+              </div>
+            </div>
+          </section>
+        </aside>
+
+        <!-- Hauptbereich: Aktuelle Runde -->
+        <section class="content">
+          <section class="panel" aria-labelledby="round-title">
+            <h2 id="round-title" class="section-title">Aktuelle Runde</h2>
+
+            <div class="round-top">
+              <div class="round-group">
+                <span class="label">Gruppe:</span>
+                <span id="current-group-name" class="value">(–)</span>
+              </div>
+
+              <div class="round-score">
+                <label for="current-score-input" class="label">Punkte:</label>
+                <div class="score-input-wrap">
+                  <input
+                    id="current-score-input"
+                    type="number"
+                    inputmode="numeric"
+                    value="0"
+                    step="1"
+                    min="0"
+                    aria-label="Punktestand bearbeiten"
+                  />
+                  <div class="score-arrows">
+                    <button
+                      type="button"
+                      class="arrow-btn"
+                      id="score-increase-btn"
+                      aria-label="Punkte erhöhen"
+                      title="erhöhen"
+                    >
+                      ▲
+                    </button>
+                    <button
+                      type="button"
+                      class="arrow-btn"
+                      id="score-decrease-btn"
+                      aria-label="Punkte reduzieren"
+                      title="reduzieren"
+                    >
+                      ▼
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="image-area" id="image-area">
+              <img
+                id="prompt-image"
+                src="./assets/placeholder.jpg"
+                alt="Aktuelles Bild"
+              />
+              <div class="image-fallback" id="image-fallback">Bild</div>
+            </div>
+
+            <div class="actions">
+              <button
+                type="button"
+                class="btn btn-outline large"
+                id="next-group-btn"
+              >
+                Nächste Gruppe ->
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline large"
+                id="change-image-btn"
+              >
+                Bild ändern
+              </button>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <small
+        >Hinweis: Gruppen und Punkte werden vom Backend verwaltet.
+        Bilder/Vokabeln kommen aus <code>data/game.json</code>.</small
+      >
+    </footer>
+  </body>
 </html>
