@@ -8,69 +8,50 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="colors.css" />
+    <script src="components/footer/footer.js" type="module"></script>
+    <script src="components/navbar/navbar.js" type="module"></script>
   </head>
   <body>
-    <div class="container">
-      <header class="main-header">
-        <div class="header-content">
-          <h1 class="app-title">LernSpaß</h1>
+    <navigation-bar></navigation-bar>
 
-          <div class="game-selector">
-            <button class="selector-btn active" data-game="1">
-              <i class="fas fa-brain"></i> Game 1
-            </button>
-            <button class="selector-btn" data-game="2">
-              <i class="fas fa-puzzle-piece"></i> Game 2
-            </button>
-          </div>
-        </div>
-
-        <div class="header-subtitle">
-          <p>
-            Wähle dein Lieblings-Lernspiel und los geht’s! Lernen war noch nie
-            so spannend.
-          </p>
-        </div>
-      </header>
-
-      <div class="games-grid">
-        <!-- Spiel 1 -->
-        <div class="game-card" onclick="location.href='spiel1.html'">
+    <div class="cards-container">
+      <div class="cards-grid">
+        <div class="card primary" onclick="location.href='spiel1.html'">
           <div class="card-header">
             <i class="fas fa-brain"></i>
           </div>
           <div class="card-body">
             <h3 class="card-title">Quiz Champion</h3>
-            <p class="card-description">
+            <p class="card-text">
               Teste dein Wissen in spannenden Quiz-Runden! Verschiedene Themen,
               Schwierigkeitsstufen und Bestenlisten warten auf dich.
             </p>
-            <button class="btn-play">
+            <button class="card-btn">
               <i class="fas fa-play"></i> Jetzt spielen
             </button>
           </div>
         </div>
 
-        <!-- Spiel 2 -->
-        <div class="game-card" onclick="location.href='spiel2.html'">
-          <div class="card-header secondary">
+        <div class="card secondary" onclick="location.href='spiel2.html'">
+          <div class="card-header">
             <i class="fas fa-puzzle-piece"></i>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Memory Master</h3>
-            <p class="card-description">
+            <h3 class="card-title">Treasure Hunt</h3>
+            <p class="card-text">
               Trainiere dein Gedächtnis mit dem klassischen Memory-Spiel – aber
               mit Lernkarten zu Mathe, Sprachen, Geschichte & mehr!
             </p>
-            <button class="btn-play secondary">
+            <button class="card-btn">
               <i class="fas fa-play"></i> Jetzt spielen
             </button>
           </div>
         </div>
       </div>
-
-      <footer>© 2025 LernSpaß – Lernen macht Spaß!</footer>
     </div>
+    <my-footer></my-footer>
   </body>
 </html>

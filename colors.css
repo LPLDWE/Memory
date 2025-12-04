@@ -1,0 +1,13 @@
+:root {
+  --primary: #2d5128;
+  --primary-dark: #1e3a1d;
+
+  --secondary: #ec4899;
+  --secondary-dark: #d22676;
+
+  --bg: #f8fafc;
+  --card-bg: white;
+
+  --text: #1e293b;
+  --text-light: #64748b;
+}
