@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spiel 2 – Bilder raten</title>
+    <title>Spiel 2 – Quiz Champion</title>
     <link rel="stylesheet" href="./styles/game2.css" />
   </head>
   <body>
     <!-- Header: Spielname links, Spielauswahl rechts -->
     <header class="app-header">
       <div class="header-left">
-        <div id="game-title" class="game-title">Spiel 2 – Bilder raten</div>
+        <div id="game-title" class="game-title">Spiel 2 – Quiz Champion</div>
       </div>
       <nav class="header-right">
         <a href="./game1.html" class="nav-btn" id="nav-game1">Spiel 1</a>
@@ -56,6 +56,7 @@
                   <tr>
                     <th scope="col">Gruppe</th>
                     <th scope="col" class="col-score">Punkte</th>
+                    <th scope="col" class="col-delete"></th>
                   </tr>
                 </thead>
                 <tbody id="group-table-body">
@@ -160,5 +161,6 @@
         Bilder/Vokabeln kommen aus <code>data/game.json</code>.</small
       >
     </footer>
+    <script type="module" src="./scripts/game2.js"></script>
   </body>
 </html>

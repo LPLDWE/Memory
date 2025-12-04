@@ -99,9 +99,9 @@ body {
   margin-bottom: 14px;
 }
 .group-form .btn {
-  width: 75px;
+  width: 70px;
   padding: 10px 12px;
-  font-size: 10px;
+  font-size: 9px;
 }
 #group-input {
   border: 2px solid var(--border);
@@ -167,6 +167,29 @@ body {
   text-align: right;
   width: 90px;
   white-space: nowrap;
+}
+.group-table .col-delete,
+.group-table .gt-delete {
+  width: 50px;
+  text-align: center;
+}
+.delete-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--muted);
+  transition: all 0.15s ease;
+  padding: 0;
+}
+.delete-btn:hover {
+  background: #fee;
+  border-color: #c33;
+  color: #c33;
 }
 .group-table tbody tr.is-current {
   background: var(--chip-active);
