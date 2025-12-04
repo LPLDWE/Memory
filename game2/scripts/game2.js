@@ -6,6 +6,7 @@ const els = {
   groupForm: document.getElementById('group-form'),
   groupInput: document.getElementById('group-input'),
   addGroupBtn: document.getElementById('add-group-btn'),
+  deleteAllGroupsBtn: document.getElementById('delete-all-groups-btn'),
   groupTableBody: document.getElementById('group-table-body'),
   groupTableEmpty: document.getElementById('group-table-empty'),
 
@@ -71,6 +72,17 @@ function loadPersisted() {
 function addGroup(name) {
   const clean = name.trim();
   if (!clean) return;
+
+  // Prüfen ob Gruppenname bereits existiert (case-insensitive)
+  const nameExists = state.groups.some(
+    (g) => g.name.toLowerCase() === clean.toLowerCase()
+  );
+
+  if (nameExists) {
+    alert(`Die Gruppe "${clean}" existiert bereits!`);
+    return;
+  }
+
   const g = { id: uid(), name: clean, score: 0 };
   state.groups.push(g);
   state.turnOrder.push(g.id);
@@ -102,6 +114,22 @@ function deleteGroup(id) {
   }
   renderAll();
   save();
+}
+
+function deleteAllGroups() {
+  if (state.groups.length === 0) return;
+
+  if (
+    confirm(
+      'Wirklich alle Gruppen löschen? Diese Aktion kann nicht rückgängig gemacht werden.'
+    )
+  ) {
+    state.groups = [];
+    state.turnOrder = [];
+    state.currentGroupId = null;
+    renderAll();
+    save();
+  }
 }
 
 function nextGroup() {
@@ -306,6 +334,11 @@ function wireEvents() {
   });
   els.changeImageBtn.addEventListener('click', () => {
     nextImage();
+  });
+
+  // Alle Gruppen löschen
+  els.deleteAllGroupsBtn.addEventListener('click', () => {
+    deleteAllGroups();
   });
 }
 
