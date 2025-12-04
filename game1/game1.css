@@ -1,82 +1,87 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100%;
+}
 
-  html, body {
-    margin: 0; padding: 0;
-    font-family: Arial, sans-serif;
-  }
+.layout {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+}
 
-  .layout {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
-  }
+.left {
+  background: #ddd;
+  padding: 10px;
+}
 
-  .left {
-    background: #ddd;
-    padding: 10px;
-  }
+.left .history-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-  .left .history-title {
-    font-weight: bold;
-    margin-bottom: 10px;
+.middle {
+  background: #f5f5f5;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
 
-  }
+.right {
+  background: #ddd;
+  padding: 10px;
+}
 
-  .middle {
-    background: #f5f5f5;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-  }
+.right .history-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-  .right {
-    background: #ddd;
-    padding: 10px;
-  }
+.history-entry {
+  background: white;
+  margin-bottom: 10px;
+  padding: 6px 8px;
+}
 
-  .right .history-title{
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+.image-history .card {
+  height: 20mm;
+}
 
-  .history-entry {
-    background: white;
-    margin-bottom: 10px;
-    padding: 6px 8px;
-  }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 7 / 6;
+}
 
-  .image-history .card{
-    height: 20mm;
-  }
+.card {
+  background: #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    gap: 10px;
-    width: 100%;
-    max-width: 700px;
-    aspect-ratio: 7 / 6;
-  }
+body {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 
-  .card {
-    background: #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    aspect-ratio: 1 / 1;
-    position: relative;
-  }
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
 
-  .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-  }
-
-  .card.show img {
-    opacity: 1;
-  }
-
+.card.show img {
+  opacity: 1;
+}

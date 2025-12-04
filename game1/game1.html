@@ -1,102 +1,112 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Treasure Hunt</title>
-  <link rel="stylesheet" href="game1.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spiel 1</title>
+    <link rel="stylesheet" href="game1.css" />
+    <link rel="stylesheet" href="../colors.css" />
 
-<div class="layout">
-  <div class="left">
-    <div class="history-title">Treasure</div>
-    <div id="treasure-list">
-      <div class="history-entry">Schatz aufgedeckt</div>
+    <script src="../components/footer/footer.js" type="module"></script>
+    <script src="../components/navbar/navbar.js" type="module"></script>
+
+    <script>
+      const grid = document.getElementById('grid');
+      const treasureList = document.getElementById('treasure-list');
+      const historyList = document.getElementById('history-list');
+
+      const demoImgURL =
+        'https://www.atelier2f.de/bildkatalog/bild/fitheight/1500/9592/9592_5fb150a841b78166697626.jpg';
+
+      let openCard = null;
+
+      for (let i = 1; i <= 42; i++) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const img = document.createElement('img');
+        img.src = demoImgURL;
+        img.alt = `Karte ${i}`;
+        card.appendChild(img);
+
+        card.addEventListener('click', () => {
+          if (openCard) return;
+          card.classList.add('show');
+          openCard = card;
+        });
+
+        grid.appendChild(card);
+      }
+
+      const categoryEntries = Array.from(
+        historyList.querySelectorAll('.history-entry')
+      );
+
+      categoryEntries.forEach((categoryEntry) => {
+        categoryEntry.style.cursor = 'pointer';
+        categoryEntry.addEventListener('click', () => {
+          if (!openCard) return; // Wenn keine Karte offen, nichts tun
+
+          // Die Karte der Kategorie hinzufügen (in .image-history div)
+          const imageHistory = categoryEntry.querySelector('.image-history');
+
+          // Vorherige Karten entfernen, damit nur die neueste sichtbar ist
+          imageHistory.innerHTML = '';
+
+          // Karte "klonen" für die Kategorie-Historie (damit Karte im Grid erhalten bleibt)
+          const cloneCard = openCard.cloneNode(true);
+          cloneCard.classList.remove('show'); // Status zurücksetzen
+          cloneCard.style.cursor = 'default'; // Keine Interaktion
+
+          // Bild im clone sichtbar machen (da in Kategorie)
+          cloneCard.classList.add('show');
+
+          imageHistory.appendChild(cloneCard);
+
+          // Offen Karte im Grid nur verblassen und nicht verstecken
+          openCard.style.opacity = '0.4'; // halbtransparent
+          openCard.style.pointerEvents = 'none'; // nicht mehr klickbar
+
+          openCard = null; // Karte wurde zugeordnet -> nächste Karte darf geöffnet werden
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <navigation-bar></navigation-bar>
+    <div class="layout">
+      <div class="left">
+        <div class="history-title">Schätze</div>
+        <div id="treasure-list">
+          <div class="history-entry">Schatz aufgedeckt</div>
+        </div>
+      </div>
+
+      <div class="middle">
+        <div class="grid-container" id="grid"></div>
+      </div>
+
+      <div class="right">
+        <div class="history-title">Kategorie</div>
+        <div id="history-list">
+          <div class="history-entry">
+            Essen
+            <div class="image-history"></div>
+          </div>
+          <div class="history-entry">
+            Tiere
+            <div class="image-history"></div>
+          </div>
+          <div class="history-entry">
+            Möbel
+            <div class="image-history"></div>
+          </div>
+          <div class="history-entry">
+            Jobs
+            <div class="image-history"></div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="middle">
-    <div class="grid-container" id="grid">
-    </div>
-  </div>
-
-  <div class="right">
-    <div class="history-title">Kategorie</div>
-    <div id="history-list">
-      <div class="history-entry">Essen
-        <div class="image-history"></div>
-      </div>
-      <div class="history-entry">Tiere
-        <div class="image-history"></div>
-      </div>
-      <div class="history-entry">Möbel
-        <div class="image-history"></div>
-      </div>
-      <div class="history-entry">Jobs
-        <div class="image-history"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-//Source CHATGPT
-  const grid = document.getElementById('grid');
-  const treasureList = document.getElementById('treasure-list');
-  const historyList = document.getElementById('history-list');
-
-  const demoImgURL = 'https://www.atelier2f.de/bildkatalog/bild/fitheight/1500/9592/9592_5fb150a841b78166697626.jpg';
-
-  let openCard = null; 
-
-  for (let i = 1; i <= 42; i++) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    const img = document.createElement('img');
-    img.src = demoImgURL;
-    img.alt = `Karte ${i}`;
-    card.appendChild(img);
-
-    card.addEventListener('click', () => {
-      if (openCard) return;
-      card.classList.add('show');
-      openCard = card;
-    });
-
-    grid.appendChild(card);
-  }
-
-  const categoryEntries = Array.from(historyList.querySelectorAll('.history-entry'));
-
-  categoryEntries.forEach(categoryEntry => {
-    categoryEntry.style.cursor = 'pointer';
-    categoryEntry.addEventListener('click', () => {
-      if (!openCard) return; // Wenn keine Karte offen, nichts tun
-
-      // Die Karte der Kategorie hinzufügen (in .image-history div)
-      const imageHistory = categoryEntry.querySelector('.image-history');
-
-      // Vorherige Karten entfernen, damit nur die neueste sichtbar ist
-      imageHistory.innerHTML = '';
-
-      // Karte "klonen" für die Kategorie-Historie (damit Karte im Grid erhalten bleibt)
-      const cloneCard = openCard.cloneNode(true);
-      cloneCard.classList.remove('show'); // Status zurücksetzen
-      cloneCard.style.cursor = 'default'; // Keine Interaktion
-
-      // Bild im clone sichtbar machen (da in Kategorie)
-      cloneCard.classList.add('show');
-
-      imageHistory.appendChild(cloneCard);
-
-      // Offen Karte im Grid nur verblassen und nicht verstecken
-      openCard.style.opacity = '0.4';           // halbtransparent
-      openCard.style.pointerEvents = 'none';   // nicht mehr klickbar
-
-      openCard = null; // Karte wurde zugeordnet -> nächste Karte darf geöffnet werden
-    });
-  });
-</script>
-</body>
+    <my-footer></my-footer>
+  </body>
 </html>
