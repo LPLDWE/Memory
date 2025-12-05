@@ -38,8 +38,6 @@ body {
 .game-title {
   font-weight: 600;
   padding: 10px 12px;
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
   min-width: 240px;
 }
 .header-right {
