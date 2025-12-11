@@ -1,4 +1,4 @@
-export class Footer extends HTMLElement {
+class Footer extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
