@@ -3,10 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spiel 2 – Quiz Champion</title>
+    <title>Quiz Champion</title>
     <link rel="stylesheet" href="./styles/game2.css" />
+    <link rel="stylesheet" href="../colors.css" />
+
+    <script src="../components/footer/footer.js" type="module"></script>
+    <script src="../components/navbar/navbar.js" type="module"></script>
   </head>
   <body>
+    <navigation-bar></navigation-bar>
     <!-- Header: Spielname links, Spielauswahl rechts -->
     <header class="app-header">
       <div class="header-left">
@@ -163,12 +168,7 @@
       </div>
     </main>
 
-    <footer class="app-footer">
-      <small
-        >Hinweis: Gruppen und Punkte werden vom Backend verwaltet.
-        Bilder/Vokabeln kommen aus <code>data/game.json</code>.</small
-      >
-    </footer>
+    <my-footer></my-footer>
     <script type="module" src="./scripts/game2.js"></script>
   </body>
 </html>
