@@ -1,0 +1,16 @@
+<svg width="240" height="160" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+    <!-- Wasser -->
+    <path d="M0 130 Q20 120 40 130 T80 130 T120 130 T160 130 T200 130 T240 130"
+          fill="none" stroke="#4da3ff" stroke-width="4"/>
+
+    <!-- Rumpf -->
+    <polygon points="60,110 180,110 160,140 80,140"
+             fill="#c46a2a" stroke="#8a4618" stroke-width="4"/>
+
+    <!-- Mast -->
+    <rect x="118" y="40" width="4" height="70" fill="#8a4618"/>
+
+    <!-- Segel -->
+    <path d="M120 45 L120 105 L170 105 Z" fill="#ffffff" stroke="#cccccc" stroke-width="2"/>
+    <path d="M120 45 L120 105 L80 105 Z" fill="#e6f2ff" stroke="#b3cde0" stroke-width="2"/>
+</svg>
