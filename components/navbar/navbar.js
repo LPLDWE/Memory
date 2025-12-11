@@ -1,4 +1,4 @@
-export class MemoryNav extends HTMLElement {
+class MemoryNav extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });

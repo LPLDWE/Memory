@@ -9,6 +9,7 @@ body {
 .layout {
   display: grid;
   grid-template-columns: 15% 70% 15%;
+  padding-bottom: 2rem;
 }
 
 .left {

@@ -1,0 +1,11 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Face circle -->
+    <circle cx="100" cy="100" r="80" fill="#FFE066" stroke="#F2B600" stroke-width="5"/>
+
+    <!-- Eyes -->
+    <circle cx="70" cy="80" r="10" fill="#333"/>
+    <circle cx="130" cy="80" r="10" fill="#333"/>
+
+    <!-- Smile -->
+    <path d="M60 120 Q100 160 140 120" stroke="#333" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>

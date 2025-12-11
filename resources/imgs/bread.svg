@@ -1,0 +1,55 @@
+<svg width="256" height="256" viewBox="0 0 256 256"
+     xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-labelledby="title desc">
+    <title>Brot – Vokabelbild</title>
+    <desc>Ein stilisierter Brotlaib als Lernbild für das deutsche Wort „Brot“.</desc>
+
+    <!-- Hintergrund (optional, kann entfernt werden) -->
+    <rect x="0" y="0" width="256" height="256" fill="none"/>
+
+    <!-- Schatten unter dem Brot -->
+    <ellipse cx="128" cy="190" rx="80" ry="18"
+             fill="#c89a5b" opacity="0.35"/>
+
+    <!-- Brotform -->
+    <path d="M48 120
+           C48 82 80 54 128 54
+           C176 54 208 82 208 120
+           C208 154 186 186 128 186
+           C70 186 48 154 48 120 Z"
+          fill="#d9a86c" stroke="#8a5a2b" stroke-width="4"
+          stroke-linejoin="round"/>
+
+    <!-- Krusten-Highlights -->
+    <path d="M60 118
+           C60 88 88 70 128 70
+           C168 70 196 88 196 118"
+          fill="none" stroke="#f4c892"
+          stroke-width="4" stroke-linecap="round"
+          opacity="0.9"/>
+
+    <!-- Einschnitte im Brot -->
+    <path d="M92 104
+           C104 94 118 92 132 96"
+          fill="none" stroke="#8a5a2b"
+          stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <path d="M112 116
+           C124 106 140 104 154 108"
+          fill="none" stroke="#8a5a2b"
+          stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <path d="M76 112
+           C88 100 102 98 116 100"
+          fill="none" stroke="#8a5a2b"
+          stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <!-- Kleine Krümel-Details (dezent, für „food“-Kategorie) -->
+    ircle cx="88" cy="152" r="2.2" fill="#b0793f" opacity="0.8"/>
+    ircle cx="110" cy="162" r="2.2" fill="#b0793f" opacity="0.7"/>
+    ircle cx="142" cy="156" r="2.2" fill="#b0793f" opacity="0.7"/>
+
+</svg>
