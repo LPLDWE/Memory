@@ -1,0 +1,49 @@
+<svg width="260" height="220" viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg">
+    <!-- Hintergrund -->
+    <rect width="260" height="220" fill="#f8fafc"/>
+
+    <!-- Schatten -->
+    <ellipse cx="130" cy="190" rx="90" ry="18" fill="rgba(0,0,0,0.15)"/>
+
+    <!-- Taschenkörper -->
+    <path d="M50 80
+           Q45 60 70 55
+           L190 55
+           Q215 60 210 80
+           L200 165
+           Q195 180 130 180
+           Q65 180 60 165
+           Z"
+          fill="#d88f4f" stroke="#a56a34" stroke-width="4"/>
+
+    <!-- Oberer Rand / Kante -->
+    <path d="M60 80
+           L200 80
+           L192 150
+           Q188 165 130 165
+           Q72 165 68 150
+           Z"
+          fill="#e6ad6f" stroke="#b57d46" stroke-width="3"/>
+
+    <!-- Nähte -->
+    <path d="M70 95 L190 95" stroke="#fff7e8" stroke-width="2" stroke-dasharray="5 5" opacity="0.7"/>
+
+    <!-- Henkel -->
+    <path d="M80 55
+           Q85 20 130 20
+           Q175 20 180 55"
+          fill="none" stroke="#a56a34" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Henkel-Lederband dunkler -->
+    <path d="M85 55
+           Q90 28 130 28
+           Q170 28 175 55"
+          fill="none" stroke="#c2894c" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Metallringe -->
+    <circle cx="80" cy="55" r="6" fill="#f2f2f2" stroke="#999" stroke-width="2"/>
+    <circle cx="180" cy="55" r="6" fill="#f2f2f2" stroke="#999" stroke-width="2"/>
+
+    <!-- Logo / kleiner Zierstreifen -->
+    <rect x="120" y="110" width="20" height="12" rx="2" fill="#9e6533" opacity="0.7"/>
+</svg>
