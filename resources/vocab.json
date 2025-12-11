@@ -1,0 +1,404 @@
+{
+    "cards": [
+        {
+            "id": 1,
+            "category": ["animal"],
+            "vocab": "Löwe",
+            "type": "noun",
+            "description": "Ein großes wildes Raubtier mit Mähne.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 10
+        },
+        {
+            "id": 2,
+            "category": ["animal"],
+            "vocab": "Eule",
+            "type": "noun",
+            "description": "Ein nachtaktiver Vogel mit großen Augen.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 12
+        },
+        {
+            "id": 3,
+            "category": ["food"],
+            "vocab": "Kartoffel",
+            "type": "noun",
+            "description": "Ein vielseitig verwendbares Gemüse.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 11
+        },
+        {
+            "id": 4,
+            "category": ["object"],
+            "vocab": "Schlüssel",
+            "type": "noun",
+            "description": "Ein Werkzeug zum Öffnen von Schlössern.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 5,
+            "category": ["verb"],
+            "vocab": "laufen",
+            "type": "verb",
+            "description": "Sich zu Fuß schnell fortbewegen.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 13
+        },
+        {
+            "id": 6,
+            "category": ["verb"],
+            "vocab": "schreiben",
+            "type": "verb",
+            "description": "Wörter mit der Hand oder Tastatur erzeugen.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 14
+        },
+        {
+            "id": 7,
+            "category": ["adjective"],
+            "vocab": "hell",
+            "type": "adjective",
+            "description": "Viel Licht vorhanden.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 8,
+            "category": ["adjective"],
+            "vocab": "stark",
+            "type": "adjective",
+            "description": "Kraftvoll oder widerstandsfähig.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 12
+        },
+        {
+            "id": 9,
+            "category": ["nature"],
+            "vocab": "Baum",
+            "type": "noun",
+            "description": "Eine große Pflanze mit Stamm und Ästen.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 10,
+            "category": ["nature"],
+            "vocab": "Fluss",
+            "type": "noun",
+            "description": "Ein natürlich fließender Wasserlauf.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 11
+        },
+        {
+            "id": 11,
+            "category": ["transport"],
+            "vocab": "Auto",
+            "type": "noun",
+            "description": "Ein Fahrzeug mit vier Rädern.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 12
+        },
+        {
+            "id": 12,
+            "category": ["transport"],
+            "vocab": "Fahrrad",
+            "type": "noun",
+            "description": "Ein zweirädriges Fahrzeug, das durch Treten angetrieben wird.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 13,
+            "category": ["food"],
+            "vocab": "Apfel",
+            "type": "noun",
+            "description": "Eine runde, süße Frucht.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 13
+        },
+        {
+            "id": 14,
+            "category": ["animal"],
+            "vocab": "Fuchs",
+            "type": "noun",
+            "description": "Ein schlaues, rot gefärbtes Wildtier.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 12
+        },
+        {
+            "id": 15,
+            "category": ["object"],
+            "vocab": "Lampe",
+            "type": "noun",
+            "description": "Ein Gerät, das Licht erzeugt.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 16,
+            "category": ["verb"],
+            "vocab": "lesen",
+            "type": "verb",
+            "description": "Geschriebene Wörter erkennen und verstehen.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 14
+        },
+        {
+            "id": 17,
+            "category": ["verb"],
+            "vocab": "schlafen",
+            "type": "verb",
+            "description": "Sich im Zustand der Ruhe befinden.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 12
+        },
+        {
+            "id": 18,
+            "category": ["adjective"],
+            "vocab": "kalt",
+            "type": "adjective",
+            "description": "Niedrige Temperatur habend.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 19,
+            "category": ["adjective"],
+            "vocab": "freundlich",
+            "type": "adjective",
+            "description": "Nett und angenehm im Umgang.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 13
+        },
+        {
+            "id": 20,
+            "category": ["nature"],
+            "vocab": "Berg",
+            "type": "noun",
+            "description": "Eine große natürliche Erhebung der Erde.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 11
+        },
+        {
+            "id": 21,
+            "category": ["object"],
+            "vocab": "Fenster",
+            "type": "noun",
+            "description": "Eine Öffnung in der Wand mit Glas, um Licht hereinzulassen.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 10
+        },
+        {
+            "id": 22,
+            "category": ["food"],
+            "vocab": "Brot",
+            "type": "noun",
+            "description": "Ein Grundnahrungsmittel aus Mehl und Wasser.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 13
+        },
+        {
+            "id": 23,
+            "category": ["animal"],
+            "vocab": "Bär",
+            "type": "noun",
+            "description": "Ein großes, starkes Säugetier.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 12
+        },
+        {
+            "id": 24,
+            "category": ["verb"],
+            "vocab": "denken",
+            "type": "verb",
+            "description": "Gedanken formen oder überlegen.",
+            "picture": null,
+            "difficulty": "3",
+            "score": 15
+        },
+        {
+            "id": 25,
+            "category": ["verb"],
+            "vocab": "springen",
+            "type": "verb",
+            "description": "Sich mit einem Satz vom Boden abheben.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 11
+        },
+        {
+            "id": 26,
+            "category": ["adjective"],
+            "vocab": "ruhig",
+            "type": "adjective",
+            "description": "Ohne Lärm oder Bewegung.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 12
+        },
+        {
+            "id": 27,
+            "category": ["nature"],
+            "vocab": "Meer",
+            "type": "noun",
+            "description": "Ein großes Salzwassergewässer.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 28,
+            "category": ["transport"],
+            "vocab": "Zug",
+            "type": "noun",
+            "description": "Ein Fahrzeug, das auf Schienen fährt.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 14
+        },
+        {
+            "id": 29,
+            "category": ["food"],
+            "vocab": "Käse",
+            "type": "noun",
+            "description": "Ein Milchprodukt mit vielen Sorten.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 11
+        },
+        {
+            "id": 30,
+            "category": ["animal"],
+            "vocab": "Pferd",
+            "type": "noun",
+            "description": "Ein großes Säugetier, das oft geritten wird.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 31,
+            "category": ["object"],
+            "vocab": "Stuhl",
+            "type": "noun",
+            "description": "Ein Möbelstück zum Sitzen.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 12
+        },
+        {
+            "id": 32,
+            "category": ["verb"],
+            "vocab": "kochen",
+            "type": "verb",
+            "description": "Essen durch Erhitzen zubereiten.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 13
+        },
+        {
+            "id": 33,
+            "category": ["adjective"],
+            "vocab": "glücklich",
+            "type": "adjective",
+            "description": "Ein Gefühl von Freude oder Zufriedenheit.",
+            "picture": null,
+            "difficulty": "3",
+            "score": 14
+        },
+        {
+            "id": 34,
+            "category": ["nature"],
+            "vocab": "Wolke",
+            "type": "noun",
+            "description": "Eine sichtbare Ansammlung von Wassertröpfchen am Himmel.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 35,
+            "category": ["transport"],
+            "vocab": "Schiff",
+            "type": "noun",
+            "description": "Ein großes Wasserfahrzeug.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 12
+        },
+        {
+            "id": 36,
+            "category": ["object"],
+            "vocab": "Tasche",
+            "type": "noun",
+            "description": "Ein Gegenstand zum Tragen von Dingen.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 11
+        },
+        {
+            "id": 37,
+            "category": ["food"],
+            "vocab": "Banane",
+            "type": "noun",
+            "description": "Eine gelbe krumme Frucht.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 10
+        },
+        {
+            "id": 38,
+            "category": ["animal"],
+            "vocab": "Hase",
+            "type": "noun",
+            "description": "Ein kleines, schnelles Säugetier mit langen Ohren.",
+            "picture": null,
+            "difficulty": "2",
+            "score": 12
+        },
+        {
+            "id": 39,
+            "category": ["verb"],
+            "vocab": "studieren",
+            "type": "verb",
+            "description": "Etwas intensiv lernen, meist an einer Hochschule.",
+            "picture": null,
+            "difficulty": "3",
+            "score": 15
+        },
+        {
+            "id": 40,
+            "category": ["adjective"],
+            "vocab": "schnell",
+            "type": "adjective",
+            "description": "Mit hoher Geschwindigkeit.",
+            "picture": null,
+            "difficulty": "1",
+            "score": 12
+        }
+    ]
+}
