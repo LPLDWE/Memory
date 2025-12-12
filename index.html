@@ -4,54 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LernSpaß – Deine Lern-App</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="index.css" />
+
+    <!-- Global styles -->
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="colors.css" />
-    <script src="components/footer/footer.js"></script>
-    <script src="components/navbar/navbar.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <!-- Navbar + Footer styles -->
+    <link rel="stylesheet" href="index.css" />
   </head>
+
   <body>
-    <navigation-bar></navigation-bar>
+    <!-- Navigation -->
+    <nav class="menu">
+      <ul>
+        <li class="memory-item">
+          <a class="memory" href="index.html">Memory</a>
+        </li>
 
-    <div class="cards-container">
-      <div class="cards-grid">
-        <div class="card primary" onclick="location.href='spiel1.html'">
-          <div class="card-header">
-            <i class="fas fa-brain"></i>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Quiz Champion</h3>
-            <p class="card-text">
-              Teste dein Wissen in spannenden Quiz-Runden! Verschiedene Themen,
-              Schwierigkeitsstufen und Bestenlisten warten auf dich.
-            </p>
-            <button class="card-btn">
-              <i class="fas fa-play"></i> Jetzt spielen
-            </button>
-          </div>
+        <div class="left-links">
+          <li><a href="game2/game2.html">Quiz Champion</a></li>
+          <li><a href="game1/game1.html">Treasure Hunt</a></li>
         </div>
+      </ul>
+    </nav>
 
-        <div class="card secondary" onclick="location.href='spiel2.html'">
-          <div class="card-header">
-            <i class="fas fa-puzzle-piece"></i>
-          </div>
-          <div class="card-body">
-            <h3 class="card-title">Treasure Hunt</h3>
-            <p class="card-text">
-              Trainiere dein Gedächtnis mit dem klassischen Memory-Spiel – aber
-              mit Lernkarten zu Mathe, Sprachen, Geschichte & mehr!
-            </p>
-            <button class="card-btn">
-              <i class="fas fa-play"></i> Jetzt spielen
-            </button>
-          </div>
-        </div>
+    <!-- Seitencontent -->
+    <main id="root"></main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <a class="impressum" href="impressum.html">Impressum</a>
       </div>
-    </div>
-    <my-footer></my-footer>
+    </footer>
+
+    <!-- Router -->
+    <script src="router.js"></script>
   </body>
 </html>

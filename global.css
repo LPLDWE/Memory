@@ -1,13 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-* {
+html,
+body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  height: 100%;
 }
 
+/* Body strukturiert die Seite vertikal */
 body {
-  background: var(--bg);
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  color: var(--text);
+}
+
+/* Navbar bleibt oben, aber NICHT fixed */
+navigation-bar {
+  flex: 0 0 auto;
+  /* echte Höhe deiner Navbar */
+  display: block;
+}
+
+/* Footer bleibt unten, aber NICHT fixed */
+my-footer {
+  flex: 0 0 auto;
+  /* echte Höhe deines Footers */
+  display: block;
+}
+
+/* Content füllt automatisch den Platz zwischen Navbar und Footer */
+#root {
+  flex: 1 0 auto;
+  overflow-y: auto;
 }
