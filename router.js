@@ -20,9 +20,7 @@ class PageRouter {
 
   async loadPageContent(pageName) {
     if (!this.router[pageName]) {
-      this.params.delete('page');
-      this.params.append('page', this.defaultRoute);
-      this.loadPageContent(this.defaultRoute);
+      navigate(this.defaultRoute);
       return;
     }
 
@@ -30,66 +28,119 @@ class PageRouter {
 
     try {
       // HTML laden
-      const html = await (await fetch(templateHTML)).text();
-      this.root.innerHTML = html;
+      if (typeof templateHTML === 'string' && templateHTML.endsWith('.html')) {
+        const html = await (await fetch(templateHTML)).text();
 
-      // CSS laden
-      this.loadCss(templateStyle);
+        // Nur inneres HTML laden da wir css und javascript schon
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        this.root.innerHTML = doc.body.innerHTML;
 
-      // JS laden
-      this.loadJs(templateJS);
+        // CSS laden
+        this.loadCss(templateStyle);
+
+        // JS laden
+        this.loadJs(templateJS);
+      } else {
+        console.error(
+          'The templateHTML you set is not a filepath nor html file'
+        );
+      }
     } catch (e) {
       console.error(e);
     }
   }
 
+  navigate(route) {
+    this.params.set('page', route);
+
+    // Lade die Standard-Seite
+    this.loadPageContent(route);
+  }
+
   loadCss(files) {
-    // Entferne alte CSS
+    // Alte CSS entfernen
     this.loadedCss.forEach((css) => css.remove());
     this.loadedCss = [];
 
-    if (files) {
-      // Füge neue CSS hinzu
-      files.forEach((file) => {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = file;
-        document.head.appendChild(link);
-        this.loadedCss.push(link);
-      });
-    } else {
-      console.error('No css files could be loaded');
+    if (!files || !Array.isArray(files) || files.length === 0) {
+      console.warn('No CSS files provided to load.');
+      return;
     }
+
+    files.forEach((file) => {
+      if (typeof file !== 'string') {
+        console.warn(`Skipped loading CSS because it is not a string:`, file);
+        return;
+      }
+
+      if (!file.endsWith('.css')) {
+        console.warn(
+          `Skipped loading file because it does not end with ".css": ${file}`
+        );
+        return;
+      }
+
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = file;
+      document.head.appendChild(link);
+      this.loadedCss.push(link);
+    });
   }
 
   loadJs(files) {
-    // Entferne alte JS
+    // Alte JS entfernen
     this.loadedJs.forEach((script) => script.remove());
     this.loadedJs = [];
-    if (files) {
-      // Füge neue JS hinzu
-      files.forEach((file) => {
-        const script = document.createElement('script');
-        script.src = file;
-        document.body.appendChild(script);
-        this.loadedJs.push(script);
-      });
+
+    if (!files || !Array.isArray(files) || files.length === 0) {
+      console.warn('No JS files provided to load.');
+      return;
     }
+
+    files.forEach((file) => {
+      if (typeof file !== 'string') {
+        console.warn(`Skipped loading JS because it is not a string:`, file);
+        return;
+      }
+
+      if (!file.endsWith('.js')) {
+        console.warn(
+          `Skipped loading file because it does not end with ".js": ${file}`
+        );
+        return;
+      }
+
+      const script = document.createElement('script');
+      script.src = file;
+      // jenachdem könnte es zu fehler kommen wegen wenn variablen global deklariert
+      // weil die variablen dann schon vom browser gespeichert wurden und nicht nochmal deklariert
+      // deshalb benutzen wir iife um das zu verhindern
+      // TODO: ABER WIR BRAUCHEN NOCH EINE BESSERE LÖSUNG DAFÜR!!!!
+      document.body.appendChild(script);
+
+      this.loadedJs.push(script);
+    });
   }
 }
 
 // game1 ist die für die route ?page=game1 und
 const routerConfig = {
+  game2: {
+    templateHTML: 'pages/game2/game2.html',
+    templateJS: ['pages/game2/scripts/game2.js'],
+    templateStyle: ['pages/game2/styles/game2.css'],
+  },
   game1: {
-    templateHTML: 'game1/game1.html',
-    templateJS: ['game1/logic/main.js'],
-    templateStyle: ['game1/game1.css'],
+    templateHTML: 'pages/game1/game1.html',
+    templateJS: ['pages/game1/logic/main.js'],
+    templateStyle: ['pages/game1/game1.css'],
   },
   home: {
     templateHTML: 'pages/home/home.html',
     templateStyle: ['pages/home/home.css'],
   },
-  // weitere Seiten...
 };
 
 const appRouter = new PageRouter(routerConfig);

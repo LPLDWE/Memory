@@ -8,7 +8,10 @@
     <!-- Global styles -->
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="colors.css" />
-    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <!-- Navbar + Footer styles -->
     <link rel="stylesheet" href="index.css" />
   </head>
@@ -22,8 +25,8 @@
         </li>
 
         <div class="left-links">
-          <li><a href="game2/game2.html">Quiz Champion</a></li>
-          <li><a href="game1/game1.html">Treasure Hunt</a></li>
+          <li><a onclick="appRouter.navigate('game1')">Quiz Champion</a></li>
+          <li><a onclick="appRouter.navigate('game2')">Treasure Hunt</a></li>
         </div>
       </ul>
     </nav>
@@ -34,7 +37,9 @@
     <!-- Footer -->
     <footer>
       <div class="footer-container">
-        <a class="impressum" href="impressum.html">Impressum</a>
+        <a class="impressum" onclick="appRouter.navigate('impressum')"
+          >Impressum</a
+        >
       </div>
     </footer>
 
