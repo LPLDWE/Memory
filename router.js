@@ -31,7 +31,7 @@ class PageRouter {
       if (typeof templateHTML === 'string' && templateHTML.endsWith('.html')) {
         const html = await (await fetch(templateHTML)).text();
 
-        // Nur inneres HTML laden da wir css und javascript schon
+        // Nur inneres HTML laden da wir css und javascript schon anderes mitladen
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         this.root.innerHTML = doc.body.innerHTML;
