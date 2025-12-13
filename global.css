@@ -6,8 +6,34 @@
   font-family: 'Inter', sans-serif;
 }
 
+html,
 body {
   background: var(--bg);
   min-height: 100vh;
   color: var(--text);
+
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+navigation-bar {
+  flex: 0 0 auto;
+  display: block;
+}
+
+my-footer {
+  flex: 0 0 auto;
+  display: block;
+}
+
+#root {
+  flex: 1 0 auto;
+  overflow-y: auto;
 }
