@@ -362,12 +362,14 @@
   }
 
   // Init
-  (async function init() {
+  async function init() {
     wireEvents();
     wireImageEvents();
     loadPersisted();
     await loadData();
     renderAll();
     renderImageInit();
-  })();
-});
+  }
+
+  init();
+})();

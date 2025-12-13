@@ -19,7 +19,7 @@ class PageRouter {
 
   async loadPageContent(pageName) {
     if (!this.router[pageName]) {
-      navigate(this.defaultRoute);
+      this.navigate(this.defaultRoute);
       return;
     }
 
