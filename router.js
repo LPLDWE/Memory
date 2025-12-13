@@ -133,7 +133,7 @@ const routerConfig = {
   },
   game1: {
     templateHTML: 'pages/game1/game1.html',
-    templateJS: ['pages/game1/logic/main.js'],
+    templateJS: ['pages/game1/scripts/main.js'],
     templateStyle: ['pages/game1/game1.css'],
   },
   home: {
