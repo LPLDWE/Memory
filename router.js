@@ -5,7 +5,6 @@ class PageRouter {
     this.loadedCss = [];
     this.loadedJs = [];
 
-    // Standard-Route speichern
     this.defaultRoute = defaultRoute;
 
     this.params = new URLSearchParams(window.location.search);
