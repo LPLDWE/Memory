@@ -89,7 +89,6 @@ class PageRouter {
   }
 
   loadJs(files) {
-    // Alte JS entfernen
     this.loadedJs.forEach((script) => script.remove());
     this.loadedJs = [];
 
@@ -105,41 +104,45 @@ class PageRouter {
       }
 
       if (!file.endsWith('.js')) {
-        console.warn(
-          `Skipped loading file because it does not end with ".js": ${file}`
-        );
+        console.warn(`Skipped loading file because it does not end with ".js": ${file}`);
         return;
       }
 
-      const script = document.createElement('script');
-      script.src = file;
-      // jenachdem könnte es zu fehler kommen wegen wenn variablen global deklariert
-      // weil die variablen dann schon vom browser gespeichert wurden und nicht nochmal deklariert
-      // deshalb benutzen wir iife um das zu verhindern
-      // TODO: ABER WIR BRAUCHEN NOCH EINE BESSERE LÖSUNG DAFÜR!!!!
-      document.body.appendChild(script);
+      // Verwenden von dynamic import()
+      import(file)
+        .then((module) => {
+          console.log(`Script ${file} loaded successfully.`);
+          this.loadedJs.push(file);
 
-      this.loadedJs.push(script);
+        })
+        .catch((err) => {
+          console.error(`Failed to load script ${file}:`, err);
+        });
     });
   }
+
 }
 
 // game1 ist die für die route ?page=game1 und
 const routerConfig = {
   game2: {
     templateHTML: 'pages/game2/game2.html',
-    templateJS: ['pages/game2/scripts/game2.js'],
+    templateJS: ['../pages/game2/scripts/game2.js'],
     templateStyle: ['pages/game2/styles/game2.css'],
   },
   game1: {
     templateHTML: 'pages/game1/game1.html',
-    templateJS: ['pages/game1/scripts/main.js'],
+    templateJS: ['../pages/game1/scripts/main.js'],
     templateStyle: ['pages/game1/game1.css'],
   },
   home: {
     templateHTML: 'pages/home/home.html',
     templateStyle: ['pages/home/home.css'],
   },
+  impressum: {
+    templateHTML: 'pages/impressum/impressum.html',
+    templateStyle: ['pages/impressum/impressum.css']
+  }
 };
 
 const appRouter = new PageRouter(routerConfig);

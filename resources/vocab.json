@@ -6,7 +6,7 @@
             "vocab": "Löwe",
             "type": "noun",
             "description": "Ein großes wildes Raubtier mit Mähne.",
-            "picture": null,
+            "picture": "images/lion.png",
             "difficulty": "2",
             "score": 10
         },
@@ -16,7 +16,7 @@
             "vocab": "Eule",
             "type": "noun",
             "description": "Ein nachtaktiver Vogel mit großen Augen.",
-            "picture": null,
+            "picture": "images/owl.png",
             "difficulty": "1",
             "score": 12
         },
@@ -26,7 +26,7 @@
             "vocab": "Kartoffel",
             "type": "noun",
             "description": "Ein vielseitig verwendbares Gemüse.",
-            "picture": null,
+            "picture": "images/potato.jpg",
             "difficulty": "1",
             "score": 11
         },
@@ -36,7 +36,7 @@
             "vocab": "Schlüssel",
             "type": "noun",
             "description": "Ein Werkzeug zum Öffnen von Schlössern.",
-            "picture": null,
+            "picture": "images/keys.jpg",
             "difficulty": "1",
             "score": 10
         },
@@ -46,7 +46,7 @@
             "vocab": "laufen",
             "type": "verb",
             "description": "Sich zu Fuß schnell fortbewegen.",
-            "picture": null,
+            "picture": "images/laufen.jpg",
             "difficulty": "2",
             "score": 13
         },
@@ -56,7 +56,7 @@
             "vocab": "schreiben",
             "type": "verb",
             "description": "Wörter mit der Hand oder Tastatur erzeugen.",
-            "picture": null,
+            "picture": "images/write.jpg",
             "difficulty": "2",
             "score": 14
         },
@@ -66,7 +66,7 @@
             "vocab": "hell",
             "type": "adjective",
             "description": "Viel Licht vorhanden.",
-            "picture": null,
+            "picture": "images/bright.jpg",
             "difficulty": "1",
             "score": 10
         },
@@ -76,7 +76,7 @@
             "vocab": "stark",
             "type": "adjective",
             "description": "Kraftvoll oder widerstandsfähig.",
-            "picture": null,
+            "picture": "images/strong.jpg",
             "difficulty": "1",
             "score": 12
         },
@@ -86,7 +86,7 @@
             "vocab": "Baum",
             "type": "noun",
             "description": "Eine große Pflanze mit Stamm und Ästen.",
-            "picture": null,
+            "picture": "images/tree.jpg",
             "difficulty": "1",
             "score": 10
         },
@@ -96,7 +96,7 @@
             "vocab": "Fluss",
             "type": "noun",
             "description": "Ein natürlich fließender Wasserlauf.",
-            "picture": null,
+            "picture": "images/river.jpg",
             "difficulty": "2",
             "score": 11
         },
@@ -106,7 +106,7 @@
             "vocab": "Auto",
             "type": "noun",
             "description": "Ein Fahrzeug mit vier Rädern.",
-            "picture": null,
+            "picture": "images/car.jpg",
             "difficulty": "1",
             "score": 12
         },
@@ -116,7 +116,7 @@
             "vocab": "Fahrrad",
             "type": "noun",
             "description": "Ein zweirädriges Fahrzeug, das durch Treten angetrieben wird.",
-            "picture": null,
+            "picture": "images/bicycle.jpg",
             "difficulty": "1",
             "score": 10
         },
@@ -126,7 +126,7 @@
             "vocab": "Apfel",
             "type": "noun",
             "description": "Eine runde, süße Frucht.",
-            "picture": null,
+            "picture": "images/apple.jpg",
             "difficulty": "1",
             "score": 13
         },
@@ -136,7 +136,7 @@
             "vocab": "Fuchs",
             "type": "noun",
             "description": "Ein schlaues, rot gefärbtes Wildtier.",
-            "picture": null,
+            "picture": "images/fox.jpg",
             "difficulty": "2",
             "score": 12
         },
@@ -146,7 +146,7 @@
             "vocab": "Lampe",
             "type": "noun",
             "description": "Ein Gerät, das Licht erzeugt.",
-            "picture": null,
+            "picture": "images/lamp.jpg",
             "difficulty": "1",
             "score": 10
         },
@@ -156,7 +156,7 @@
             "vocab": "lesen",
             "type": "verb",
             "description": "Geschriebene Wörter erkennen und verstehen.",
-            "picture": null,
+            "picture": "images/reading.png",
             "difficulty": "1",
             "score": 14
         },
@@ -166,7 +166,7 @@
             "vocab": "schlafen",
             "type": "verb",
             "description": "Sich im Zustand der Ruhe befinden.",
-            "picture": null,
+            "picture": "images/sleeping.jpg",
             "difficulty": "1",
             "score": 12
         },
@@ -176,7 +176,7 @@
             "vocab": "kalt",
             "type": "adjective",
             "description": "Niedrige Temperatur habend.",
-            "picture": null,
+            "picture": "images/cold.jpg",
             "difficulty": "1",
             "score": 10
         },
@@ -186,7 +186,7 @@
             "vocab": "freundlich",
             "type": "adjective",
             "description": "Nett und angenehm im Umgang.",
-            "picture": null,
+            "picture": "images/fast.jpeg",
             "difficulty": "2",
             "score": 13
         },
@@ -196,7 +196,7 @@
             "vocab": "Berg",
             "type": "noun",
             "description": "Eine große natürliche Erhebung der Erde.",
-            "picture": null,
+            "picture": "images/mountain.jpg",
             "difficulty": "2",
             "score": 11
         },
@@ -206,7 +206,7 @@
             "vocab": "Fenster",
             "type": "noun",
             "description": "Eine Öffnung in der Wand mit Glas, um Licht hereinzulassen.",
-            "picture": null,
+            "picture": "images/window.svg",
             "difficulty": "2",
             "score": 10
         },
@@ -216,7 +216,7 @@
             "vocab": "Brot",
             "type": "noun",
             "description": "Ein Grundnahrungsmittel aus Mehl und Wasser.",
-            "picture": null,
+            "picture": "images/bread.svg",
             "difficulty": "1",
             "score": 13
         },
@@ -226,7 +226,7 @@
             "vocab": "Bär",
             "type": "noun",
             "description": "Ein großes, starkes Säugetier.",
-            "picture": null,
+            "picture": "images/bar.svg",
             "difficulty": "2",
             "score": 12
         },
@@ -236,7 +236,7 @@
             "vocab": "denken",
             "type": "verb",
             "description": "Gedanken formen oder überlegen.",
-            "picture": null,
+            "picture": "images/thought.jpg",
             "difficulty": "3",
             "score": 15
         },
@@ -246,7 +246,7 @@
             "vocab": "springen",
             "type": "verb",
             "description": "Sich mit einem Satz vom Boden abheben.",
-            "picture": null,
+            "picture": "images/jumping.jpg",
             "difficulty": "2",
             "score": 11
         },
@@ -256,7 +256,7 @@
             "vocab": "ruhig",
             "type": "adjective",
             "description": "Ohne Lärm oder Bewegung.",
-            "picture": null,
+            "picture": "images/silence.png",
             "difficulty": "2",
             "score": 12
         },
@@ -266,7 +266,7 @@
             "vocab": "Meer",
             "type": "noun",
             "description": "Ein großes Salzwassergewässer.",
-            "picture": null,
+            "picture": "images/meer.jpg",
             "difficulty": "1",
             "score": 10
         },
@@ -276,7 +276,7 @@
             "vocab": "Zug",
             "type": "noun",
             "description": "Ein Fahrzeug, das auf Schienen fährt.",
-            "picture": null,
+            "picture": "images/train.jpeg",
             "difficulty": "2",
             "score": 14
         },
@@ -286,7 +286,7 @@
             "vocab": "Käse",
             "type": "noun",
             "description": "Ein Milchprodukt mit vielen Sorten.",
-            "picture": null,
+            "picture": "images/cheese.jpeg",
             "difficulty": "1",
             "score": 11
         },
@@ -296,7 +296,7 @@
             "vocab": "Pferd",
             "type": "noun",
             "description": "Ein großes Säugetier, das oft geritten wird.",
-            "picture": null,
+            "picture": "images/horse.jpeg",
             "difficulty": "1",
             "score": 10
         },
@@ -306,7 +306,7 @@
             "vocab": "Stuhl",
             "type": "noun",
             "description": "Ein Möbelstück zum Sitzen.",
-            "picture": null,
+            "picture": "images/chair.jpeg",
             "difficulty": "1",
             "score": 12
         },
@@ -316,7 +316,7 @@
             "vocab": "kochen",
             "type": "verb",
             "description": "Essen durch Erhitzen zubereiten.",
-            "picture": null,
+            "picture": "images/cocking.jpeg",
             "difficulty": "2",
             "score": 13
         },
@@ -326,7 +326,7 @@
             "vocab": "glücklich",
             "type": "adjective",
             "description": "Ein Gefühl von Freude oder Zufriedenheit.",
-            "picture": null,
+            "picture": "images/happy.svg",
             "difficulty": "3",
             "score": 14
         },
@@ -336,7 +336,7 @@
             "vocab": "Wolke",
             "type": "noun",
             "description": "Eine sichtbare Ansammlung von Wassertröpfchen am Himmel.",
-            "picture": null,
+            "picture": "images/cloud.svg",
             "difficulty": "1",
             "score": 10
         },
@@ -346,7 +346,7 @@
             "vocab": "Schiff",
             "type": "noun",
             "description": "Ein großes Wasserfahrzeug.",
-            "picture": null,
+            "picture": "images/ship.svg",
             "difficulty": "2",
             "score": 12
         },
@@ -356,7 +356,7 @@
             "vocab": "Tasche",
             "type": "noun",
             "description": "Ein Gegenstand zum Tragen von Dingen.",
-            "picture": null,
+            "picture": "images/bag.svg",
             "difficulty": "1",
             "score": 11
         },
@@ -366,7 +366,7 @@
             "vocab": "Banane",
             "type": "noun",
             "description": "Eine gelbe krumme Frucht.",
-            "picture": null,
+            "picture": "images/Bananas.svg",
             "difficulty": "1",
             "score": 10
         },
@@ -376,7 +376,7 @@
             "vocab": "Hase",
             "type": "noun",
             "description": "Ein kleines, schnelles Säugetier mit langen Ohren.",
-            "picture": null,
+            "picture": "images/rabbit.jpg",
             "difficulty": "2",
             "score": 12
         },
@@ -386,7 +386,7 @@
             "vocab": "studieren",
             "type": "verb",
             "description": "Etwas intensiv lernen, meist an einer Hochschule.",
-            "picture": null,
+            "picture": "images/study.jpeg",
             "difficulty": "3",
             "score": 15
         },
@@ -396,7 +396,27 @@
             "vocab": "schnell",
             "type": "adjective",
             "description": "Mit hoher Geschwindigkeit.",
-            "picture": null,
+            "picture": "images/fast.jpeg",
+            "difficulty": "1",
+            "score": 12
+        },
+        {
+            "id": 41,
+            "category": ["adjective"],
+            "vocab": "schnell",
+            "type": "adjective",
+            "description": "Mit hoher Geschwindigkeit.",
+            "picture": "images/fast.jpeg",
+            "difficulty": "1",
+            "score": 12
+        },
+        {
+            "id": 42,
+            "category": ["adjective"],
+            "vocab": "schnell",
+            "type": "adjective",
+            "description": "Mit hoher Geschwindigkeit.",
+            "picture": "images/fast.jpeg",
             "difficulty": "1",
             "score": 12
         }
