@@ -61,7 +61,7 @@ add_config_categories();
 const treasureCardIndices = [];
 
 // Randomly pick 4 unique indices for treasure cards
-while (treasureCardIndices.length < 40) {
+while (treasureCardIndices.length < 20) {
   const randomIndex = Math.floor(Math.random() * 42); // Generate random number between 0 and 41
   if (!treasureCardIndices.includes(randomIndex)) {
     treasureCardIndices.push(randomIndex);
@@ -83,10 +83,26 @@ for (let i = 0; i <= 41; i++) {
   img.alt = `Karte ${i}`;
   card.appendChild(img);
 
+
+
   card.addEventListener('click', () => {
     if (openCard) return;
     card.classList.add('show');
     openCard = card;
+
+    if (openCard.classList.contains('treasure-card')) {
+      console.log("treasure");
+      openCard = null;
+
+      const entryDiv = document.createElement('div');
+      entryDiv.className = 'history-entry';
+
+      entryDiv.innerHTML = `
+        <img class="" style="height: 6rem" src="./../../../resources/assets/images/treasure.svg" alt="Schatz gefunden">
+        `;
+
+      treasureList.appendChild(entryDiv);
+    }
   });
 
   grid.appendChild(card);
