@@ -1,5 +1,3 @@
-// game2.js (ES6-Modul)
-
 
 // Definiere die DOM-Elemente, Zustände und Hilfsfunktionen
 const els = {
@@ -206,6 +204,7 @@ function renderCurrentGroupHeader() {
 
 // Bild-Logik
 function refillImagePool() {
+  console.log(...state.allImages)
   state.availableImages = [...state.allImages];
 }
 
@@ -229,7 +228,7 @@ function displayImage(image) {
   state.currentImage = image;
   els.imageFallback.style.display = 'none';
   els.imageEl.style.display = 'block';
-  els.imageEl.src = image.src;
+  els.imageEl.src = image.src ? './resources' + image.src : "" ;
   els.imageEl.alt = image.word_de ? `Bild: ${image.word_de}` : 'Bild';
   save();
 }
@@ -244,6 +243,8 @@ async function init() {
   wireEvents();
   loadPersisted();
   await loadData();
+
+
   renderAll();
   renderImageInit();
 }
@@ -284,13 +285,19 @@ function wireEvents() {
 async function loadData() {
   try {
     const res = await fetch('./resources/vocab.json', { cache: 'no-store' });
+
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-    state.allImages = Array.isArray(data.images) ? data.images : [];
+
+    state.allImages = Array.isArray(data.cards) ? data.cards.map(card => card.picture) : [];
+
 
     if (state.availableImages.length === 0 && state.allImages.length > 0) {
       refillImagePool();
     }
+
+    console.log(state.allImages);
+
   } catch (err) {
     console.warn('Konnte resources/vocab.json nicht laden:', err);
     state.allImages = [];
