@@ -61,7 +61,7 @@
 
   add_config_categories();
 
-  const foundTreasures = 0;
+  let foundTreasures = 0;
   refreshTreasures();
 
   const treasureCardIndices = [];
