@@ -1,11 +1,11 @@
 body {
   height: auto;
   font-family: Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
   background-color: #f4f4f4;
 }
 .container {
+  line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
   background-color: white;
