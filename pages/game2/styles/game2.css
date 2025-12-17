@@ -131,7 +131,7 @@ body {
   border-bottom: none;
 }
 .group-table tbody tr {
-  cursor: pointer; /* optional: Zeile klickbar für Auswahl der aktuellen Gruppe */
+  cursor: pointer;
   transition: background 0.1s ease;
 }
 .group-table tbody tr:hover {
