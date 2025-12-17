@@ -104,11 +104,10 @@ body {
   background: rgb(204, 24, 24);
 }
 
-/* Tabelle: Gruppenliste ("Gruppe | Punkte") */
 .group-table-wrap {
   position: relative;
-  max-height: 300px; /* Set a maximum height for the table container */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+  max-height: 300px;
+  overflow-y: auto;
 }
 .group-table {
   width: 100%;
