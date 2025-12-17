@@ -406,7 +406,7 @@
             "vocab": "wall unit",
             "type": "noun",
             "description": "A cabinet that occupies the area of a wall",
-            "picture": "images/wall_unit.jpeg",
+            "picture": "images/wall_unit.png",
             "difficulty": "1",
             "score": 12
         },
@@ -416,7 +416,7 @@
             "vocab": "Lederhosen",
             "type": "noun",
             "description": "A traditional bavarian pant",
-            "picture": "images/lederhose.jpeg",
+            "picture": "images/lederhose.png",
             "difficulty": "1",
             "score": 12
         }
