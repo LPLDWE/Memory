@@ -14,8 +14,6 @@
     <navigation-bar></navigation-bar>
     <!-- Header: Spielname links, Spielauswahl rechts -->
 
-    <img src="./resources/images/lion.png" alt="Bilder Wand">
-
     <main class="container">
       <div class="layout">
         <!-- Sidebar: Gruppenverwaltung + sortierbare Tabelle -->
@@ -74,7 +72,7 @@
             <button
               type="button"
               id="delete-all-groups-btn"
-              class="btn btn-outline btn-delete-all"
+              class="btn btn-outline large"
               style="width: 100%; margin-top: 12px"
             >
               Alle Gruppen löschen
@@ -131,11 +129,13 @@
 
             <div class="image-area" id="image-area">
               <img
+                style="max-width: 600px; min-width: 300px"
+                height="300px"
                 id="prompt-image"
-                src=""
-                alt="Aktuelles Bild"
               />
-              <div class="image-fallback" id="image-fallback">Bild</div>
+              <div class="image-fallback" id="image-fallback">
+                Es werden keine Bilder gefunden
+              </div>
             </div>
 
             <div class="actions">

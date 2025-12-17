@@ -1,4 +1,3 @@
-
 // Definiere die DOM-Elemente, Zustände und Hilfsfunktionen
 const els = {
   groupForm: document.getElementById('group-form'),
@@ -22,7 +21,7 @@ const state = {
   groups: [],
   turnOrder: [],
   currentGroupId: null,
-  allImages: [],
+  dataCards: [],
   availableImages: [],
   currentImage: null,
   persistKey: 'game2_state_v1',
@@ -55,7 +54,8 @@ function loadPersisted() {
     if (snap && Array.isArray(snap.groups)) {
       state.groups = snap.groups;
       state.turnOrder = snap.turnOrder || state.groups.map((g) => g.id);
-      state.currentGroupId = snap.currentGroupId || (state.groups[0]?.id ?? null);
+      state.currentGroupId =
+        snap.currentGroupId || (state.groups[0]?.id ?? null);
       state.availableImages = snap.availableImages || [];
       state.currentImage = snap.currentImage || null;
     }
@@ -66,7 +66,9 @@ function loadPersisted() {
 function addGroup(name) {
   const clean = name.trim();
   if (!clean) return;
-  const nameExists = state.groups.some((g) => g.name.toLowerCase() === clean.toLowerCase());
+  const nameExists = state.groups.some(
+    (g) => g.name.toLowerCase() === clean.toLowerCase()
+  );
   if (nameExists) {
     alert(`Die Gruppe "${clean}" existiert bereits!`);
     return;
@@ -89,8 +91,7 @@ function deleteGroup(id) {
 
   // Wenn gelöschte Gruppe die aktuelle war, nächste wählen
   if (state.currentGroupId === id) {
-    state.currentGroupId =
-      state.groups.length > 0 ? state.groups[0].id : null;
+    state.currentGroupId = state.groups.length > 0 ? state.groups[0].id : null;
   }
   renderAll();
   save();
@@ -204,8 +205,7 @@ function renderCurrentGroupHeader() {
 
 // Bild-Logik
 function refillImagePool() {
-  console.log(...state.allImages)
-  state.availableImages = [...state.allImages];
+  state.availableImages = [...state.dataCards];
 }
 
 function getRandomImage() {
@@ -222,14 +222,13 @@ function getRandomImage() {
 function displayImage(image) {
   if (!image) {
     els.imageEl.style.display = 'none';
-    els.imageFallback.style.display = 'block';
+    els.imageFallback.style.display = '';
     return;
   }
   state.currentImage = image;
   els.imageFallback.style.display = 'none';
-  els.imageEl.style.display = 'block';
-  els.imageEl.src = image.src ? './resources' + image.src : "" ;
-  els.imageEl.alt = image.word_de ? `Bild: ${image.word_de}` : 'Bild';
+  els.imageEl.style.display = '';
+  els.imageEl.src = './resources/' + image.picture ?? '';
   save();
 }
 
@@ -243,7 +242,6 @@ async function init() {
   wireEvents();
   loadPersisted();
   await loadData();
-
 
   renderAll();
   renderImageInit();
@@ -289,23 +287,20 @@ async function loadData() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    state.allImages = Array.isArray(data.cards) ? data.cards.map(card => card.picture) : [];
+    state.dataCards = Array.isArray(data.cards) ? data.cards.m : [];
+    console.log(state.dataCards);
 
-
-    if (state.availableImages.length === 0 && state.allImages.length > 0) {
+    if (state.availableImages.length === 0 && state.dataCards.length > 0) {
       refillImagePool();
     }
-
-    console.log(state.allImages);
-
   } catch (err) {
     console.warn('Konnte resources/vocab.json nicht laden:', err);
-    state.allImages = [];
+    state.dataCards = [];
   }
 }
 
 function renderImageInit() {
-  if (!state.allImages || state.allImages.length === 0) {
+  if (!state.dataCards || state.dataCards.length === 0) {
     els.imageEl.style.display = 'none';
     els.imageFallback.style.display = 'block';
     return;
@@ -325,4 +320,11 @@ function renderAll() {
 }
 
 // Export der relevanten Funktionen
-export { addGroup, deleteGroup, nextGroup, setCurrentGroup, updateCurrentScore, renderAll };
+export {
+  addGroup,
+  deleteGroup,
+  nextGroup,
+  setCurrentGroup,
+  updateCurrentScore,
+  renderAll,
+};

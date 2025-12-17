@@ -75,15 +75,23 @@ body {
   border-color: var(--primary);
 }
 #delete-all-groups-btn {
-  position: absolute; /* Position the button at the bottom of the panel */
-  bottom: 1rem; /* Place it 1rem above the bottom of the parent */
-  left: 0;
-  right: 0;
-  margin: 0 auto; /* Center the button horizontally */
-  width: 50%; /* Adjust the width to make it smaller */
-  padding: 0.5rem 1rem; /* Adjust padding for a smaller appearance */
-  font-size: 1rem; /* Ensure the font size is appropriate */
-  text-align: center;
+  position: absolute;
+  bottom: 1.5rem;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  max-width: 70%;
+
+  color: #c33;
+  border-color: #c33;
+}
+
+#delete-all-groups-btn:hover {
+  color: white;
+
+  border-color: #c33;
+  background-color: #c33;
 }
 
 /* Buttons */
@@ -272,7 +280,7 @@ body {
 }
 #prompt-image {
   max-width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
   border-radius: 1.5rem;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
