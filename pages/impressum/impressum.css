@@ -1,34 +1,34 @@
 body {
-    height: auto;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
+  height: auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #f4f4f4;
 }
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 }
-h1, h2 {
-    color: #333;
+h1,
+h2 {
+  color: #333;
 }
 p {
-    color: #555;
-    margin-bottom: 1em;
+  color: #555;
+  margin-bottom: 1em;
 }
 ul {
-    margin-left: 20px;
-    color: #555;
+  margin-left: 20px;
+  color: #555;
 }
 .local-footer {
-    text-align: center;
-    font-size: 1em;
-    margin-top: 20px;
-    color: #c11a1a;
+  text-align: center;
+  font-size: 1em;
+  margin-top: 20px;
+  color: #c11a1a;
 }
