@@ -3,7 +3,7 @@ const treasureList = document.getElementById('treasure-list');
 const historyList = document.getElementById('history-list');
 
 const demoImgURL =
-  'https://www.atelier2f.de/bildkatalog/bild/fitheight/1500/9592/9592_5fb150a841b78166697626.jpg';
+  '/resources/images/lion.png';
 
 let openCard = null;
 
@@ -28,7 +28,10 @@ async function loadConfig() {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    return await response.json();
+
+    const temp = await response.json();
+
+    return temp.treasureHunt;
   } catch (error) {
     console.error('Es gab ein Problem beim Laden der Konfiguration:', error);
   }
@@ -61,7 +64,7 @@ add_config_categories();
 const treasureCardIndices = [];
 
 // Randomly pick 4 unique indices for treasure cards
-while (treasureCardIndices.length < 20) {
+while (treasureCardIndices.length < config.treasure_chests) {
   const randomIndex = Math.floor(Math.random() * 42); // Generate random number between 0 and 41
   if (!treasureCardIndices.includes(randomIndex)) {
     treasureCardIndices.push(randomIndex);
@@ -84,14 +87,12 @@ for (let i = 0; i <= 41; i++) {
   card.appendChild(img);
 
 
-
   card.addEventListener('click', () => {
     if (openCard) return;
     card.classList.add('show');
     openCard = card;
 
     if (openCard.classList.contains('treasure-card')) {
-      console.log("treasure");
       openCard = null;
 
       const entryDiv = document.createElement('div');

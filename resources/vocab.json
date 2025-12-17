@@ -387,7 +387,7 @@
             "type": "verb",
             "description": "Etwas intensiv lernen, meist an einer Hochschule.",
             "picture": "images/study.jpeg",
-            "difficulty": "3",
+            "difficulty": "2",
             "score": 15
         },
         {
@@ -402,21 +402,21 @@
         },
         {
             "id": 41,
-            "category": ["adjective"],
-            "vocab": "schnell",
-            "type": "adjective",
-            "description": "Mit hoher Geschwindigkeit.",
-            "picture": "images/fast.jpeg",
+            "category": ["noun"],
+            "vocab": "wall unit",
+            "type": "noun",
+            "description": "A cabinet that occupies the area of a wall",
+            "picture": "images/wall_unit.jpeg",
             "difficulty": "1",
             "score": 12
         },
         {
             "id": 42,
-            "category": ["adjective"],
-            "vocab": "schnell",
-            "type": "adjective",
-            "description": "Mit hoher Geschwindigkeit.",
-            "picture": "images/fast.jpeg",
+            "category": ["noun"],
+            "vocab": "Lederhosen",
+            "type": "noun",
+            "description": "A traditional bavarian pant",
+            "picture": "images/lederhose.jpeg",
             "difficulty": "1",
             "score": 12
         }

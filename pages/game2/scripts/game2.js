@@ -122,7 +122,7 @@ function nextGroup() {
   save();
 }
 
-// Die fehlende Funktion `updateCurrentScore`
+
 function updateCurrentScore(newScore) {
   const g = currentGroup();
   if (!g) return;
@@ -287,8 +287,7 @@ async function loadData() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    state.dataCards = Array.isArray(data.cards) ? data.cards.m : [];
-    console.log(state.dataCards);
+    state.dataCards = Array.isArray(data.cards) ? data.cards: [];
 
     if (state.availableImages.length === 0 && state.dataCards.length > 0) {
       refillImagePool();
