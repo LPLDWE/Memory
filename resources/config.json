@@ -1,8 +1,7 @@
 {
-  "quizChampion": {  }
-  ,
+  "quizChampion": {},
   "treasureHunt": {
-    "treasure_chests": 26,
+    "treasure_chests": 1,
     "categories": ["Essen", "Tiere", "Möbel", "Adjective"]
   }
 }

@@ -1,17 +1,16 @@
-html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  min-height: 100%;
-  background: var(--bg);
-  color: var(--text);
+  padding-top: 70px;
+  min-height: 100vh;
 }
 
 .layout {
   display: grid;
   grid-template-columns: 15% 70% 15%;
-  padding-bottom: 2rem;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 86vh;
 }
 
 .left {
@@ -21,7 +20,8 @@ body {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
-.left .history-title {
+.left .history-title,
+.right .history-title {
   font-weight: bold;
   margin-bottom: 10px;
   color: var(--text);
@@ -39,6 +39,8 @@ body {
   padding: 10px;
   border-radius: 1.5rem;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 600px;
 }
 
 .right .history-title {
@@ -48,21 +50,16 @@ body {
 }
 
 .history-entry {
+  margin: 10px;
   background: var(--card-bg);
   margin-bottom: 10px;
   padding: 2rem;
   text-align: left;
   border-radius: 1.5rem;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 7px rgba(0, 0, 0, 0.1);
   color: var(--text);
   font-size: 1.1rem;
   line-height: 1.6;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.history-entry:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.15);
 }
 
 .image-history .card {
@@ -89,26 +86,67 @@ body {
   align-items: center;
   aspect-ratio: 1 / 1;
   position: relative;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
   color: white;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.15);
-}
-
-body {
-  padding-top: 70px;
 }
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
+  border-radius: 1.5rem;
+  opacity: 0; /* Hide image by default */
+  transition: opacity 0.3s ease; /* Smooth transition when revealed */
 }
 
 .card.show img {
-  opacity: 1;
+  opacity: 1; /* Show image when card is revealed */
+}
+
+#history-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 4rem;
+}
+
+#refresh {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease;
+  background: var(--primary);
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.large {
+  padding: 16px 18px;
+  font-size: 1.2rem;
 }

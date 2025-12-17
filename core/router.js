@@ -34,6 +34,7 @@ class PageRouter {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         this.root.innerHTML = doc.body.innerHTML;
+        document.title = this.router[pageName].title || 'Memory - Homepage';
 
         // CSS laden
         this.loadCss(templateStyle);
@@ -89,6 +90,7 @@ class PageRouter {
   }
 
   loadJs(files) {
+    // Alte JS entfernen
     this.loadedJs.forEach((script) => script.remove());
     this.loadedJs = [];
 
@@ -104,45 +106,45 @@ class PageRouter {
       }
 
       if (!file.endsWith('.js')) {
-        console.warn(`Skipped loading file because it does not end with ".js": ${file}`);
+        console.warn(
+          `Skipped loading file because it does not end with ".js": ${file}`
+        );
         return;
       }
 
-      // Verwenden von dynamic import()
-      import(file)
-        .then((module) => {
-          console.log(`Script ${file} loaded successfully.`);
-          this.loadedJs.push(file);
+      const script = document.createElement('script');
+      script.src = file;
+      document.body.appendChild(script);
 
-        })
-        .catch((err) => {
-          console.error(`Failed to load script ${file}:`, err);
-        });
+      this.loadedJs.push(script);
     });
   }
-
 }
 
 // game1 ist die für die route ?page=game1 und
 const routerConfig = {
   game2: {
+    title: 'Memory - Tresure Hunt',
     templateHTML: 'pages/game2/game2.html',
-    templateJS: ['../pages/game2/scripts/game2.js'],
-    templateStyle: ['pages/game2/styles/game2.css'],
+    templateJS: ['pages/game2/scripts/game2.js'],
+    templateStyle: ['pages/game2/styles/game2.css', 'core/styling/button.css'],
   },
   game1: {
+    title: 'Memory - Quiz Champion',
     templateHTML: 'pages/game1/game1.html',
-    templateJS: ['../pages/game1/scripts/main.js'],
-    templateStyle: ['pages/game1/game1.css'],
+    templateJS: ['pages/game1/scripts/main.js'],
+    templateStyle: ['pages/game1/game1.css', 'core/styling/button.css'],
   },
   home: {
+    title: 'Memory - Homepage',
     templateHTML: 'pages/home/home.html',
     templateStyle: ['pages/home/home.css'],
   },
   impressum: {
+    title: 'Memory - Impressum',
     templateHTML: 'pages/impressum/impressum.html',
-    templateStyle: ['pages/impressum/impressum.css']
-  }
+    templateStyle: ['pages/impressum/impressum.css'],
+  },
 };
 
 const appRouter = new PageRouter(routerConfig);
