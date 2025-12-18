@@ -124,26 +124,26 @@ class PageRouter {
 // game1 ist die für die route ?page=game1 und
 const routerConfig = {
   game2: {
-    title: 'Memory - Tresure Hunt',
+    title: 'Memory - Quiz Champion',
     templateHTML: 'pages/game2/game2.html',
     templateJS: ['pages/game2/scripts/game2.js'],
-    templateStyle: ['pages/game2/styles/game2.css', 'core/styling/button.css'],
+    templateStyle: ['pages/game2/styles/game2.css', 'core/styles/button.css'],
   },
   game1: {
-    title: 'Memory - Quiz Champion',
+    title: 'Memory - Treasure Hunt',
     templateHTML: 'pages/game1/game1.html',
     templateJS: ['pages/game1/scripts/main.js'],
-    templateStyle: ['pages/game1/game1.css', 'core/styling/button.css'],
+    templateStyle: ['pages/game1/styles/game1.css', 'core/styles/button.css'],
   },
   home: {
     title: 'Memory - Homepage',
     templateHTML: 'pages/home/home.html',
-    templateStyle: ['pages/home/home.css'],
+    templateStyle: ['pages/home/styles/home.css'],
   },
   impressum: {
     title: 'Memory - Impressum',
     templateHTML: 'pages/impressum/impressum.html',
-    templateStyle: ['pages/impressum/impressum.css'],
+    templateStyle: ['pages/impressum/styles/impressum.css'],
   },
 };
 
