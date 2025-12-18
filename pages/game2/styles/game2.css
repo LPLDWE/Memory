@@ -352,31 +352,47 @@ body {
 /* Zusätzliche Responsivität für Tablets (z.B. iPad, Surface) */
 @media (max-width: 768px) {
   .container {
-    padding: 10px 8px 20px;
-    padding-top: 70px; /* Weniger Abstand oben */
+    height: 100vh; /* Feste Höhe, um Scrollen zu verhindern */
+    overflow: hidden; /* Verhindert vertikales Scrollen */
+    padding: 8px 6px 16px;
+    padding-top: 60px; /* Weniger Abstand oben für kompakteres Layout */
   }
   .layout {
-    gap: 10px;
+    display: flex; /* Flexbox für bessere Raumverteilung */
+    flex-direction: column;
+    gap: 8px;
+    height: 100%; /* Volle Höhe nutzen */
+  }
+  .sidebar {
+    flex: 0 0 auto; /* Sidebar nimmt benötigten Raum */
+  }
+  .content {
+    flex: 1; /* Content nimmt restlichen Raum */
+    display: flex;
+    flex-direction: column;
   }
   .panel {
-    padding: 12px; /* Reduziertes Padding in Panels */
-    margin-bottom: 12px;
+    padding: 8px; /* Reduziertes Padding in Panels */
+    margin-bottom: 8px;
+    flex: 0 0 auto; /* Panels nehmen benötigten Raum */
   }
   .image-area {
-    min-height: 200px; /* Noch kleinere Höhe */
-    max-height: 30vh;
-    padding: 8px;
+    flex: 1; /* Bildbereich nimmt restlichen Raum */
+    min-height: 150px; /* Noch kleinere Höhe */
+    max-height: none; /* Keine Begrenzung, passt sich an */
+    padding: 6px;
   }
   .group-table-wrap {
-    max-height: 200px; /* Begrenzte Höhe für Tabelle */
-    overflow-y: auto; /* Scrollen in Tabelle erlauben, wenn nötig */
+    max-height: 120px; /* Kleinere Tabelle */
+    overflow-y: auto; /* Scrollen in Tabelle erlauben */
   }
   .actions {
-    gap: 12px;
+    flex: 0 0 auto; /* Actions am Ende */
+    gap: 8px;
   }
   .btn.large {
-    padding: 12px 14px;
-    font-size: 14px;
+    padding: 10px 12px;
+    font-size: 13px;
   }
 }
 
