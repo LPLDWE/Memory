@@ -73,7 +73,7 @@
     }
   }
 
-  for (let i = 0; i <= 41; i++) {
+  for (let i = 0; i <= config.card_amount - 1; i++) {
     const card = document.createElement('div');
     card.className = 'card';
     const img = document.createElement('img');
