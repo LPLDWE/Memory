@@ -34,6 +34,7 @@ class PageRouter {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         this.root.innerHTML = doc.body.innerHTML;
+        document.title = this.router[pageName].title || 'Memory - Homepage';
 
         // CSS laden
         this.loadCss(templateStyle);
@@ -113,10 +114,6 @@ class PageRouter {
 
       const script = document.createElement('script');
       script.src = file;
-      // jenachdem könnte es zu fehler kommen wegen wenn variablen global deklariert
-      // weil die variablen dann schon vom browser gespeichert wurden und nicht nochmal deklariert
-      // deshalb benutzen wir iife um das zu verhindern
-      // TODO: ABER WIR BRAUCHEN NOCH EINE BESSERE LÖSUNG DAFÜR!!!!
       document.body.appendChild(script);
 
       this.loadedJs.push(script);
@@ -127,18 +124,26 @@ class PageRouter {
 // game1 ist die für die route ?page=game1 und
 const routerConfig = {
   game2: {
+    title: 'Memory - Quiz Champion',
     templateHTML: 'pages/game2/game2.html',
     templateJS: ['pages/game2/scripts/game2.js'],
-    templateStyle: ['pages/game2/styles/game2.css'],
+    templateStyle: ['pages/game2/styles/game2.css', 'core/styles/button.css'],
   },
   game1: {
+    title: 'Memory - Treasure Hunt',
     templateHTML: 'pages/game1/game1.html',
     templateJS: ['pages/game1/scripts/main.js'],
-    templateStyle: ['pages/game1/game1.css'],
+    templateStyle: ['pages/game1/styles/game1.css', 'core/styles/button.css'],
   },
   home: {
+    title: 'Memory - Homepage',
     templateHTML: 'pages/home/home.html',
-    templateStyle: ['pages/home/home.css'],
+    templateStyle: ['pages/home/styles/home.css'],
+  },
+  impressum: {
+    title: 'Memory - Impressum',
+    templateHTML: 'pages/impressum/impressum.html',
+    templateStyle: ['pages/impressum/styles/impressum.css'],
   },
 };
 
