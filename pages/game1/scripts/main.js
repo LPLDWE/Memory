@@ -73,7 +73,10 @@
     }
   }
 
-  for (let i = 0; i <= config.card_amount - 1; i++) {
+  const cardsAmount =  config.card_amount && config.card_amount <= data.length ?  config.card_amount : data.length ;
+
+  alert(cardsAmount);
+  for (let i = 0; i <= cardsAmount -1; i++) {
     const card = document.createElement('div');
     card.className = 'card';
     const img = document.createElement('img');
@@ -89,7 +92,7 @@
     card.appendChild(img);
 
     card.addEventListener('click', () => {
-      if (openCard) return;
+      if (openCard || config.treasure_chests === foundTreasures ) return;
       card.classList.add('show');
       openCard = card;
 

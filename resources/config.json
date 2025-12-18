@@ -1,8 +1,8 @@
 {
   "quizChampion": {},
   "treasureHunt": {
-    "card_amount": 42,
-    "treasure_chests": 1,
+    "treasure_chests": 42,
+    "card_amount" : 42,
     "categories": ["Essen", "Tiere", "Möbel", "Adjective"]
   }
 }
