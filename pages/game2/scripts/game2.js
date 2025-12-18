@@ -1,5 +1,12 @@
 (async () => {
   // ==============================
+  // Konstanten
+  // ==============================
+  const STORAGE_KEY = 'game2_state_v1';
+  const FALLBACK_GROUP_NAME = '(–)';
+  const FALLBACK_SCORE = 0;
+
+  // ==============================
   // DOM-Elemente
   // ==============================
   const els = {
@@ -30,66 +37,75 @@
     dataCards: [],
     availableImages: [],
     currentImage: null,
-    persistKey: 'game2_state_v1',
   };
 
   // ==============================
   // Hilfsfunktionen
   // ==============================
-  const uid = () => 'g' + Math.random().toString(36).slice(2, 9);
-  const byId = (id) => state.groups.find((g) => g.id === id);
-  const currentGroup = () => byId(state.currentGroupId);
+  const generateId = () => 'g' + Math.random().toString(36).slice(2, 9);
+  const findGroupById = (id) => state.groups.find((g) => g.id === id);
+  const getCurrentGroup = () => findGroupById(state.currentGroupId);
 
   // ==============================
-  // Persistenz mithilfe von LocalStorage
+  // Persistenz mit LocalStorage
   // ==============================
-  function save() {
-    localStorage.setItem(
-      state.persistKey,
-      JSON.stringify({
-        groups: state.groups,
-        turnOrder: state.turnOrder,
-        currentGroupId: state.currentGroupId,
-        availableImages: state.availableImages,
-        currentImage: state.currentImage,
-      })
-    );
+  function saveState() {
+    try {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          groups: state.groups,
+          turnOrder: state.turnOrder,
+          currentGroupId: state.currentGroupId,
+          availableImages: state.availableImages,
+          currentImage: state.currentImage,
+        })
+      );
+    } catch (error) {
+      console.warn('Fehler beim Speichern des States:', error);
+    }
   }
 
-  function loadPersisted() {
-    const raw = localStorage.getItem(state.persistKey);
-    if (!raw) return;
-    const snap = JSON.parse(raw);
-    if (!Array.isArray(snap.groups)) return;
+  function loadPersistedState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const snap = JSON.parse(raw);
+      if (!Array.isArray(snap.groups)) return;
 
-    state.groups = snap.groups;
-    state.turnOrder = snap.turnOrder || state.groups.map((g) => g.id);
-    state.currentGroupId = snap.currentGroupId || state.groups[0]?.id || null;
-    state.availableImages = snap.availableImages || [];
-    state.currentImage = snap.currentImage || null;
+      state.groups = snap.groups;
+      state.turnOrder = snap.turnOrder || state.groups.map((g) => g.id);
+      state.currentGroupId = snap.currentGroupId || state.groups[0]?.id || null;
+      state.availableImages = snap.availableImages || [];
+      state.currentImage = snap.currentImage || null;
+    } catch (error) {
+      console.warn('Fehler beim Laden des States:', error);
+    }
   }
 
   // ==============================
   // Spiel-Logik
   // ==============================
   function addGroup(name) {
-    const clean = name.trim();
-    if (!clean) return;
+    const trimmedName = name.trim();
+    if (!trimmedName) return;
 
     if (
-      state.groups.some((g) => g.name.toLowerCase() === clean.toLowerCase())
+      state.groups.some(
+        (g) => g.name.toLowerCase() === trimmedName.toLowerCase()
+      )
     ) {
-      alert(`Die Gruppe "${clean}" existiert bereits!`);
+      alert(`Die Gruppe "${trimmedName}" existiert bereits!`);
       return;
     }
 
-    const g = { id: uid(), name: clean, score: 0 };
-    state.groups.push(g);
-    state.turnOrder.push(g.id);
-    if (!state.currentGroupId) state.currentGroupId = g.id;
+    const newGroup = { id: generateId(), name: trimmedName, score: 0 };
+    state.groups.push(newGroup);
+    state.turnOrder.push(newGroup.id);
+    if (!state.currentGroupId) state.currentGroupId = newGroup.id;
 
     renderAll();
-    save();
+    saveState();
   }
 
   function deleteGroup(id) {
@@ -101,7 +117,7 @@
     }
 
     renderAll();
-    save();
+    saveState();
   }
 
   async function deleteAllGroups() {
@@ -115,24 +131,25 @@
       state.turnOrder = [];
       state.currentGroupId = null;
       renderAll();
-      save();
+      saveState();
     }
   }
 
   function nextGroup() {
     if (!state.turnOrder.length) return;
-    const idx = state.turnOrder.indexOf(state.currentGroupId);
-    state.currentGroupId = state.turnOrder[(idx + 1) % state.turnOrder.length];
+    const currentIndex = state.turnOrder.indexOf(state.currentGroupId);
+    state.currentGroupId =
+      state.turnOrder[(currentIndex + 1) % state.turnOrder.length];
     renderAll();
-    save();
+    saveState();
   }
 
-  function updateCurrentScore(score) {
-    const g = currentGroup();
-    if (!g) return;
-    g.score = Math.max(0, Math.round(score));
+  function updateCurrentScore(newScore) {
+    const group = getCurrentGroup();
+    if (!group) return;
+    group.score = Math.max(0, Math.round(newScore));
     renderAll();
-    save();
+    saveState();
   }
 
   // ==============================
@@ -148,48 +165,49 @@
     }
     els.groupTableEmpty.style.display = 'none';
 
-    [...state.groups]
-      .sort((a, b) =>
-        b.score !== a.score
-          ? b.score - a.score
-          : a.name.localeCompare(b.name, 'de', { sensitivity: 'base' })
-      )
-      .forEach((g) => {
-        const tr = document.createElement('tr');
-        if (g.id === state.currentGroupId) tr.classList.add('is-current');
+    const sortedGroups = [...state.groups].sort((a, b) =>
+      b.score !== a.score
+        ? b.score - a.score
+        : a.name.localeCompare(b.name, 'de', { sensitivity: 'base' })
+    );
 
-        tr.innerHTML = `
-          <td class="gt-name">${g.name}</td>
-          <td class="gt-score">${g.score}</td>
-          <td class="gt-delete"><button class="delete-btn">×</button></td>
-        `;
+    sortedGroups.forEach((group) => {
+      const row = document.createElement('tr');
+      if (group.id === state.currentGroupId) row.classList.add('is-current');
 
-        tr.querySelector('.delete-btn').onclick = () => {
-          if (confirm(`Gruppe "${g.name}" wirklich löschen?`)) {
-            deleteGroup(g.id);
-          }
-        };
+      row.innerHTML = `
+        <td class="gt-name">${group.name}</td>
+        <td class="gt-score">${group.score}</td>
+        <td class="gt-delete"><button class="delete-btn">×</button></td>
+      `;
 
-        tr.onclick = () => setCurrentGroup(g.id);
-        tbody.appendChild(tr);
+      row.querySelector('.delete-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (confirm(`Gruppe "${group.name}" wirklich löschen?`)) {
+          deleteGroup(group.id);
+        }
       });
+
+      row.addEventListener('click', () => setCurrentGroup(group.id));
+      tbody.appendChild(row);
+    });
   }
 
   function setCurrentGroup(id) {
-    if (!byId(id)) return;
+    if (!findGroupById(id)) return;
     state.currentGroupId = id;
     renderAll();
-    save();
+    saveState();
   }
 
   function renderCurrentGroupHeader() {
-    const g = currentGroup();
-    els.currentGroupName.textContent = g?.name ?? '(–)';
-    els.currentScoreInput.value = g?.score ?? 0;
+    const group = getCurrentGroup();
+    els.currentGroupName.textContent = group?.name ?? FALLBACK_GROUP_NAME;
+    els.currentScoreInput.value = group?.score ?? FALLBACK_SCORE;
 
-    const enabled = !g;
+    const isEnabled = !!group;
     [els.currentScoreInput, els.scoreIncBtn, els.scoreDecBtn].forEach(
-      (el) => (el.disabled = !enabled)
+      (el) => (el.disabled = !isEnabled)
     );
 
     els.nextGroupBtn.disabled = state.groups.length < 2;
@@ -206,10 +224,10 @@
     if (!state.availableImages.length) refillImagePool();
     if (!state.availableImages.length) return null;
 
-    return state.availableImages.splice(
-      Math.floor(Math.random() * state.availableImages.length),
-      1
-    )[0];
+    const randomIndex = Math.floor(
+      Math.random() * state.availableImages.length
+    );
+    return state.availableImages.splice(randomIndex, 1)[0];
   }
 
   function displayImage(image) {
@@ -222,7 +240,7 @@
     els.imageFallback.style.display = 'none';
     els.imageEl.style.display = '';
     els.imageEl.src = './resources/' + image.picture;
-    save();
+    saveState();
   }
 
   function nextImage() {
@@ -234,17 +252,25 @@
   // ==============================
   async function loadData() {
     try {
-      const res = await fetch('./resources/vocab.json', { cache: 'no-store' });
-      const data = await res.json();
+      const response = await fetch('./resources/vocab.json', {
+        cache: 'no-store',
+      });
+      if (!response.ok) throw new Error('Fehler beim Laden der Daten');
+      const data = await response.json();
       state.dataCards = Array.isArray(data.cards) ? data.cards : [];
       if (!state.availableImages.length) refillImagePool();
-    } catch {
+    } catch (error) {
+      console.error('Fehler beim Laden der Daten:', error);
       state.dataCards = [];
     }
   }
 
   function renderImageInit() {
-    state.currentImage ? displayImage(state.currentImage) : nextImage();
+    if (state.currentImage) {
+      displayImage(state.currentImage);
+    } else {
+      nextImage();
+    }
   }
 
   function renderAll() {
@@ -254,33 +280,34 @@
   }
 
   function wireEvents() {
-    els.groupForm.onsubmit = (e) => {
+    els.groupForm.addEventListener('submit', (e) => {
       e.preventDefault();
       addGroup(els.groupInput.value);
       els.groupInput.value = '';
-    };
-    els.addGroupBtn.onclick = () => {
+    });
+    els.addGroupBtn.addEventListener('click', () => {
       addGroup(els.groupInput.value);
       els.groupInput.value = '';
-    };
+    });
 
-    els.scoreIncBtn.onclick = () =>
-      updateCurrentScore((currentGroup()?.score ?? 0) + 1);
+    els.scoreIncBtn.addEventListener('click', () =>
+      updateCurrentScore((getCurrentGroup()?.score ?? 0) + 1)
+    );
     els.scoreDecBtn.onclick = () =>
-      updateCurrentScore((currentGroup()?.score ?? 0) - 1);
-    els.nextGroupBtn.onclick = nextGroup;
-    els.changeImageBtn.onclick = nextImage;
-    els.deleteAllGroupsBtn.onclick = deleteAllGroups;
+      updateCurrentScore((getCurrentGroup()?.score ?? 0) - 1);
+    els.nextGroupBtn.addEventListener('click', nextGroup);
+    els.changeImageBtn.addEventListener('click', nextImage);
+    els.deleteAllGroupsBtn.addEventListener('click', deleteAllGroups);
   }
 
   // ==============================
   // Start
   // ==============================
   wireEvents();
-  loadPersisted();
+  loadPersistedState();
   await loadData();
   renderAll();
 
-  // optional bewusst freigeben
+  // Optional: Spiel neu starten
   // window.restartGame = renderAll;
 })();
