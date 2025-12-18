@@ -5,12 +5,10 @@ body {
 
 .layout {
   display: grid;
-  grid-template-columns: 15% 70% 15%;
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: 17.5% 55% 17.5%;
+  gap: 5%;
   max-width: 1400px;
-  margin: 0 auto;
-  min-height: 86vh;
+  margin: 1.5% 2.5%;
 }
 
 .left {
@@ -30,8 +28,6 @@ body {
 .middle {
   background: var(--bg);
   padding: 10px;
-  display: flex;
-  justify-content: center;
 }
 
 .right {
@@ -71,8 +67,6 @@ body {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
   gap: 10px;
-  width: 100%;
-  max-width: 700px;
   aspect-ratio: 7 / 6;
 }
 
