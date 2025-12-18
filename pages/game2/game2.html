@@ -1,26 +1,34 @@
 <!DOCTYPE html>
+<!-- Game2 HTML: Dies ist die Hauptseite für das Quiz-Spiel "Quiz Champion".
+     Das Spiel ermöglicht es, Gruppen zu verwalten, Punkte zu vergeben und Bilder anzuzeigen.
+     Die Seite ist in eine Sidebar (für Gruppenverwaltung) und einen Hauptbereich (für die aktuelle Runde) unterteilt. -->
 <html lang="de">
   <head>
+    <!-- Meta-Tags für Zeichensatz, Viewport und Titel -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiz Champion</title>
+    <!-- CSS-Dateien einbinden: Spezifische Styles für Game2 und globale Farben -->
     <link rel="stylesheet" href="./styles/game2.css" />
     <link rel="stylesheet" href="../colors.css" />
 
+    <!-- JavaScript-Module für Footer und Navbar einbinden -->
     <script src="../components/footer/footer.js" type="module"></script>
     <script src="../components/navbar/navbar.js" type="module"></script>
   </head>
   <body>
+    <!-- Navigation-Bar einbinden -->
     <navigation-bar></navigation-bar>
-    <!-- Header: Spielname links, Spielauswahl rechts -->
 
+    <!-- Hauptcontainer für das Layout -->
     <main class="container">
       <div class="layout">
-        <!-- Sidebar: Gruppenverwaltung + sortierbare Tabelle -->
+        <!-- Sidebar: Bereich für Gruppenverwaltung und sortierbare Tabelle -->
         <aside class="sidebar">
           <section class="panel" aria-labelledby="groups-title">
             <h2 id="groups-title" class="section-title">Gruppen</h2>
 
+            <!-- Formular zum Hinzufügen neuer Gruppen -->
             <form class="group-form" id="group-form" autocomplete="off">
               <label for="group-input" class="sr-only"
                 >Gruppen-/Spielername</label
@@ -36,7 +44,7 @@
               </button>
             </form>
 
-            <!-- Tabelle: "Gruppe | Punkte" (vom Backend befüllen/sortieren) -->
+            <!-- Tabelle zur Anzeige der Gruppen und ihrer Punkte -->
             <div class="group-table-wrap">
               <table
                 class="group-table"
@@ -54,7 +62,8 @@
                   </tr>
                 </thead>
                 <tbody id="group-table-body">
-                  <!-- Beispiel (vom Backend ersetzt)
+                  <!-- Beispielzeilen (werden dynamisch durch JavaScript ersetzt) -->
+                  <!--
                 <tr class="is-current" data-group-id="g1">
                   <td class="gt-name">Gruppe 1</td>
                   <td class="gt-score">5</td>
@@ -65,10 +74,12 @@
                 </tr>
                 --></tbody>
               </table>
+              <!-- Anzeige, wenn keine Gruppen vorhanden sind -->
               <div class="empty-state" id="group-table-empty">
                 Noch keine Gruppen. Bitte oben hinzufügen.
               </div>
             </div>
+            <!-- Button zum Löschen aller Gruppen -->
             <button
               type="button"
               id="delete-all-groups-btn"
@@ -80,11 +91,12 @@
           </section>
         </aside>
 
-        <!-- Hauptbereich: Aktuelle Runde -->
+        <!-- Hauptbereich: Anzeige der aktuellen Runde -->
         <section class="content">
           <section class="panel" aria-labelledby="round-title">
             <h2 id="round-title" class="section-title">Aktuelle Runde</h2>
 
+            <!-- Obere Bereich: Aktuelle Gruppe und Punkte-Eingabe -->
             <div class="round-top">
               <div class="round-group">
                 <span class="label">Gruppe:</span>
@@ -103,6 +115,7 @@
                     min="0"
                     aria-label="Punktestand bearbeiten"
                   />
+                  <!-- Pfeil-Buttons zum Erhöhen/Verringern der Punkte -->
                   <div class="score-arrows">
                     <button
                       type="button"
@@ -127,6 +140,7 @@
               </div>
             </div>
 
+            <!-- Bildbereich: Anzeige des aktuellen Bildes oder Fallback -->
             <div class="image-area" id="image-area">
               <img
                 id="prompt-image"
@@ -136,6 +150,7 @@
               <div class="image-fallback" id="image-fallback">Bild</div>
             </div>
 
+            <!-- Aktionen: Buttons für nächste Gruppe und Bild ändern -->
             <div class="actions">
               <button
                 type="button"
@@ -157,7 +172,9 @@
       </div>
     </main>
 
+    <!-- Footer einbinden -->
     <my-footer></my-footer>
+    <!-- JavaScript für Game2 einbinden -->
     <script type="module" src="./scripts/game2.js"></script>
   </body>
 </html>

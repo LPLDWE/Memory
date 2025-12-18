@@ -48,7 +48,7 @@ nav.menu .memory {
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: var(--secondary);
+  color: white; /* Farbe auf weiß geändert */
 }
 
 /* Footer */
@@ -75,7 +75,7 @@ footer .footer-container {
 footer .impressum {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--secondary);
+  color: white; /* Farbe auf weiß geändert */
   text-decoration: none;
   padding: 10px 16px;
   border-radius: 8px;
